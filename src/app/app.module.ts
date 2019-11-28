@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GetApiComponent } from './get-api/get-api.component';
+import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GetApiComponent } from './get-api/get-api.component';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    GetApiComponent
+    GetApiComponent,
+    UkmcodeComponent
   ],
   imports: [
     BrowserModule,
