@@ -3,7 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
+<<<<<<< HEAD
 import { LoginFormComponent } from './login/login.component';
+=======
+import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
+
+>>>>>>> origin/master
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
@@ -21,6 +26,10 @@ const routes: Routes = [
   {
     path: 'ukmcode',
     component: UkmcodeComponent
+  },
+  {
+    path: 'home/:kode',
+    component: UkmDetailComponent,
   }
 ];
 

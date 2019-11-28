@@ -19,7 +19,7 @@ export class PelayananAPIService {
     return this.http.get<UKM>(`${this.urlApi}/api/ukm`);
   }
 
-  getUKMbykode(kode: number): Observable<UKM> {
-    return this.http.get<UKM>(`${this.urlApi}/api/mahasiswa/${kode}`);
+  getUKMbykode(kode: string): Observable<UKM> {
+    return this.http.get<UKM>(`${this.urlApi}/api/ukm/${kode}`);
   }
 }
