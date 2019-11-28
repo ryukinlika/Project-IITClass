@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { GetApiComponent } from './get-api/get-api.component';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
+import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'ukmcode',
     component: UkmcodeComponent
+  },
+  {
+    path: 'home/:kode',
+    component: UkmDetailComponent,
   }
 ];
 

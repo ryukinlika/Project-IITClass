@@ -56,7 +56,7 @@
   </div>
 </div>
 <div class="kartu-grid container center">
-  <div *ngFor="let ukms of ukm.result.ukm" class="card">
+  <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="./{{ukms.kode}}">
     <img src="{{ukms.foto}}" class="card-img-top">
     <div class="card-body bg-dark text-light">
       <h3>{{ukms.nama}}</h3>
