@@ -17,6 +17,10 @@ const routes: Routes = [
     component: RegisterComponent, pathMatch: 'full'
   },
   {
+    path: 'ukmdetail/:kode',
+    component: UkmDetailComponent
+  },
+  {
     path: 'login',
     component: LoginFormComponent, pathMatch: 'full'
   },
