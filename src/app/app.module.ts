@@ -10,6 +10,8 @@ import { FooterComponent } from './_shared/component/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GetApiComponent } from './get-api/get-api.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    UkmDetailComponent
+    UkmDetailComponent,
+    GetApiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AnimateOnScrollModule.forRoot()
+    AnimateOnScrollModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
