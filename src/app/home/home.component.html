@@ -52,5 +52,13 @@
       <p class="card-text ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, accusamus.</p>
     </div>
   </div>
-
+</div>
+<div class="kartu-grid container center">
+  <div *ngFor="let ukms of ukm.result.ukm" class="card">
+    <img src="{{ukms.foto}}" class="card-img-top">
+    <div class="card-body bg-dark text-light">
+      <h3>{{ukms.nama}}</h3>
+      <p class="card-test">{{ukms.deskripsi}}</p>
+    </div>
+  </div>
 </div>
