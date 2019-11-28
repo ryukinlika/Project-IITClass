@@ -12,8 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GetApiComponent } from './get-api/get-api.component';
-import { UkmcodeComponent } from './ukmcode/ukmcode.component';
-
+import { UkmcodeComponent } from './ukmcode/ukmcode.component'
 @NgModule({
   declarations: [
     AppComponent,

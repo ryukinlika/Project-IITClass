@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { style, transition, animate, trigger } from '@angular/animations';
 import { UKM } from '../_shared/models/ukm';
-import { PelayanApiService } from '../_shared/services/pelayanan-api.service';
+import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   private ukm: UKM = null;
 
   constructor(
-    private pelayanApi: PelayanApiService
+    private pelayanApi: PelayananAPIService
   ) { }
 
   ngOnInit() {
