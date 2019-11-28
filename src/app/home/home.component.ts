@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { style, transition, animate, trigger } from '@angular/animations';
+import { UKM } from '../_shared/models/ukm';
+import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,18 @@ import { style, transition, animate, trigger } from '@angular/animations';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private ukm: UKM = null;
+
+  constructor(
+    private pelayanApi: PelayananAPIService
+  ) { }
 
   ngOnInit() {
+    this.pelayanApi.getAllUKM().subscribe(
+      result => { this.ukm = result; console.log(this.ukm) },
+      error => { console.log(error); }
+    )
   }
+
 
 }
