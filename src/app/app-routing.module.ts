@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { GetApiComponent } from './get-api/get-api.component';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 
@@ -15,10 +14,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent, pathMatch: 'full'
-  },
-  {
-    path: 'getApi',
-    component: GetApiComponent, pathMatch: 'full'
   },
   {
     path: 'ukmcode',
