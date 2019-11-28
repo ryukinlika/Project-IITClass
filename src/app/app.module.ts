@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 
+import { LoginFormComponent } from './login/login.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +26,17 @@ import { UkmcodeComponent } from './ukmcode/ukmcode.component';
     HomeComponent,
     RegisterComponent,
     UkmDetailComponent,
-    UkmcodeComponent
+    UkmcodeComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AnimateOnScrollModule.forRoot(),
-    ReactiveFormsModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

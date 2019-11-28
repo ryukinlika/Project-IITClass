@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 import { UKM } from '../_shared/models/ukm';
 import { setDefaultService } from 'selenium-webdriver/chrome';
+
 
 @Component({
   selector: 'app-ukm-detail',
@@ -12,6 +14,7 @@ import { setDefaultService } from 'selenium-webdriver/chrome';
 export class UkmDetailComponent implements OnInit {
 
   public ukm: UKM = null;
+
   public cAt: Date;
   public createdAt: string;
   public uAt: Date;
@@ -31,6 +34,7 @@ export class UkmDetailComponent implements OnInit {
         error => { console.log(error) }
       )
     })
+
 
   }
 
