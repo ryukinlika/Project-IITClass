@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { style, transition, animate, trigger } from '@angular/animations';
+import { style, transition, animate, trigger, state } from '@angular/animations';
 import { UKM } from '../_shared/models/ukm';
 import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 
@@ -8,13 +8,12 @@ import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
-    trigger('fade', [
-      transition('void=>*', [
-        style({ opacity: 0 }),
-        animate(2000)
-      ])
-    ])
-
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
   ]
 })
 export class HomeComponent implements OnInit {
@@ -27,9 +26,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.pelayanApi.getAllUKM().subscribe(
-      result => { this.ukm = result; console.log(this.ukm) },
+      result => { this.ukm = result; console.log(this.ukm); },
       error => { console.log(error); }
-    )
+    );
   }
 
 
