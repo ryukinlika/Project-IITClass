@@ -1,6 +1,11 @@
 .kartu-grid {
-  width: 90%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 10px;
+
+  img {
+    width: 100%;
+    height: 230px;
+  }
 }
