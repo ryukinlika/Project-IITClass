@@ -9,6 +9,7 @@ import { HeaderComponent } from './_shared/component/header/header.component';
 import { FooterComponent } from './_shared/component/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    UkmDetailComponent
   ],
   imports: [
     BrowserModule,
