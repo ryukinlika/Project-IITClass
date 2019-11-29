@@ -35,8 +35,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.loading = true;
     if (this.regisForm.invalid) return;
+    this.loading = true;
 
     this.data = this.regisForm;
 
@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
 
   onReset() {
     this.submitted = false;
+    this.loading = false;
     this.regisForm.reset();
   }
 

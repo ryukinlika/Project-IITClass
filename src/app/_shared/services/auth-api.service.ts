@@ -20,6 +20,6 @@ export class AuthAPIService {
   }
 
   login(data: any): Observable<serverResponse> {
-    return;
+    return this.http.post<serverResponse>(`${this.urlApi}/api/login`, data);
   }
 }
