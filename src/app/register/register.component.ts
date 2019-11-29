@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
+import { AuthAPIService } from '../_shared/services/auth-api.service';
+import { ServerResponse } from 'http';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,9 +15,11 @@ export class RegisterComponent implements OnInit {
   loading = false;
 
   private data: any;
+  private resp: ServerResponse;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public APIAuth: AuthAPIService
   ) { }
 
   ngOnInit() {
@@ -40,6 +44,10 @@ export class RegisterComponent implements OnInit {
 
     this.data.value.password = CryptoJS.SHA512(this.regisForm.value.password).toString();
     console.log(JSON.stringify(this.data.value));
+    this.APIAuth.register(this.data.value).subscribe(
+      result => { this.data = result; console.log(this.data); },
+      error => { console.log(error); }
+    );
 
   }
 
