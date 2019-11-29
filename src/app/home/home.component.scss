@@ -40,3 +40,18 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('./.././../assets/images/umnbg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(70%);
+  color: white;
+}
+
+.neglectmasthead {
+  filter: brightness(100%);
+}
