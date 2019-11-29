@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import { AuthAPIService } from '../_shared/services/auth-api.service';
-import { ServerResponse } from 'http';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,7 +14,6 @@ export class RegisterComponent implements OnInit {
   loading = false;
 
   private data: any;
-  private resp: ServerResponse;
 
   constructor(
     private fb: FormBuilder,
