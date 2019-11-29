@@ -30,7 +30,6 @@ export class UkmDetailComponent implements OnInit {
       this.pelayanAPI.getUKMbykode(param.kode).subscribe(
         result => {
           this.ukm = result;
-          console.log(this.ukm.result)
         },
         error => { console.log(error) },
       )
