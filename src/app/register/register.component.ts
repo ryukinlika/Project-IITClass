@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,26 +10,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   regisForm: FormGroup;
   submitted = false;
+  loading = false;
+
+  private data: any;
+
   constructor(
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
     this.regisForm = this.fb.group({
-      username: ['', Validators.required],
-      fullname: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      address: ['', Validators.required],
-      phone: ['', Validators.required],
-      bdate: ['', Validators.required],
-      photo: ['', Validators.required],
+      user_name: ['', Validators.required],
+      telepon: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      nama_lengkap: ['', Validators.required],
+      alamat: ['', Validators.required],
+      tanggal_lahir: ['', Validators.required],
+      foto: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
+
   onSubmit() {
     this.submitted = true;
+    this.loading = true;
     if (this.regisForm.invalid) return;
-    console.log(JSON.stringify(this.regisForm.value));
+
+    this.data = this.regisForm;
+
+    this.data.value.password = CryptoJS.SHA512(this.regisForm.value.password).toString();
+    console.log(JSON.stringify(this.data.value));
+
   }
 
   onReset() {
