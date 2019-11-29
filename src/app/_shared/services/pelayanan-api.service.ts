@@ -7,7 +7,7 @@ import { UKM } from '../models/ukm'
 @Injectable({
   providedIn: 'root'
 })
-export class PelayanApiService {
+export class PelayananAPIService {
 
   private urlApi = 'https://umn-pti2019.herokuapp.com';
 
@@ -20,6 +20,7 @@ export class PelayanApiService {
   }
 
   getUKMbykode(kode: number): Observable<UKM> {
-    return this.http.get<UKM>(`${this.urlApi}/api/mahasiswa/${kode}`);
+
+    return this.http.get<UKM>(`${this.urlApi}/api/ukm/${kode}`);
   }
 }

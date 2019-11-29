@@ -1,1 +1,48 @@
-<p>ukm-detail works!</p>
+
+<div class="container mt-5 ml-3 mr-3">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="{{ukm.result.foto}}" class="border border-primary p-2">
+        </div>
+        <div class="col-9 border-left border-secondary">
+            <div class="row">
+                <h4 class="col-4">
+                    Nama UKM
+                </h4>
+                <h4 class=" col-5">
+                    : {{ukm.result.nama}}
+                </h4>
+            </div>
+            <div class="row">
+                <h4 class="col-4">
+                    Anggota UKM
+                </h4>
+                <h4 class=" col-5">
+                    : {{ukm.result.anggota}}
+                </h4>
+            </div>
+            <div class="row">
+                <h4 class="col-4">
+                    Kode UKM
+                </h4>
+                <h4 class=" col-5">
+                    : {{ukm.result.kode}}
+                </h4>
+            </div>
+            <div class="row">
+                <h4 class="col-4">
+                    Waktu UKM
+                </h4>
+                <h4 class=" col-5">
+                    : {{ukm.result.jam_mulai}} - {{ukm.result.jam_selesai}}
+                </h4>
+            </div>
+        </div>
+    </div>
+    <div class="row m-1 p-2" style="border-left: 10px solid lightblue">
+        <h4>{{ukm.result.deskripsi}}</h4>
+    </div>
+    {{setDate(ukm.result.created_at, ukm.result.updated_at)}}
+    <p> Created at : {{createdAt}}, Last updated at {{updatedAt}}</p>
+</div>
+
