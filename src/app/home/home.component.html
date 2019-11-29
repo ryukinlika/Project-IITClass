@@ -4,8 +4,15 @@
       <div class="col-12 text-center">
         <h1 class="neglectmasthead" class="font-weight-light">Unit Kegiatan Mahasiswa</h1>
         <p class="neglectmasthead" class="lead">Express Yourself</p>
-        <div class="container center">
-          <input class="col-lg-offset-4 search" type="text" name="" id="" placeholder="Search UKM">
+        <div class="form-box">
+          <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+              <div class="searchbar">
+                <input class="search_input" type="text" name="" placeholder="Search...">
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -17,10 +24,8 @@
 </h1>
 
 <div class="kartu-grid container center">
-
   <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
-
-    <img src="{{ukms.foto}}" class="card-img-top">
+    <img src="{{ukms.foto}}" class="card-img-top logosettings">
     <div class="card-body bg-dark text-light">
       <h3>{{ukms.nama}}</h3>
       <p class="card-text">{{ukms.deskripsi}}</p>
