@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 
 import { LoginFormComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LoginFormComponent } from './login/login.component';
     RegisterComponent,
     UkmDetailComponent,
     UkmcodeComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

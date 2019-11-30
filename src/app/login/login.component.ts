@@ -25,7 +25,8 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.form.group({
       user_name: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      remember_me: []
     });
   }
 
@@ -37,11 +38,11 @@ export class LoginFormComponent implements OnInit {
 
 
     this.data = this.loginForm
-
-    this.data.value.password = CryptoJS.SHA512(this.loginForm.value.password).toString();
+    console.log(this.data.value);
+    this.data.value.password = CryptoJS.SHA512(this.data.value.password).toString();
     this.APIAuth.login(this.data.value).subscribe(
-      result => { 
-        this.data = result; console.log(this.data); 
+      result => {
+        this.data = result; console.log(this.data);
         this.APIAuth.verify(this.data).subscribe(
           result => {
             this.data = result; console.log(this.data)
