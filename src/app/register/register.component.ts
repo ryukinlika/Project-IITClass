@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import { AuthAPIService } from '../_shared/services/auth-api.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,12 +15,17 @@ export class RegisterComponent implements OnInit {
   regisForm: FormGroup;
   submitted = false;
   loading = false;
+  submitError = false;
+  httpErrorResponse: any;
+  errormessage: string = "";
+
 
   private data: any;
 
   constructor(
     private fb: FormBuilder,
-    public APIAuth: AuthAPIService
+    public APIAuth: AuthAPIService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -43,16 +51,31 @@ export class RegisterComponent implements OnInit {
     this.data.value.password = CryptoJS.SHA512(this.regisForm.value.password).toString();
     console.log(JSON.stringify(this.data.value));
     this.APIAuth.register(this.data.value).subscribe(
-      result => { this.data = result; console.log(this.data); },
-      error => { console.log(error); }
+      result => { this.data = result; console.log(this.data); this.redirectToLogin() },
+      error => { console.log(error); this.displayError(error) }
     );
-
   }
 
   onReset() {
     this.submitted = false;
     this.loading = false;
     this.regisForm.reset();
+  }
+
+  displayError(error: HttpErrorResponse) {
+    this.submitError = true;
+    this.errormessage = "";
+    console.log(error.error.result)
+    for (let a in error.error.result) {
+      this.errormessage += error.error.result[a];
+      this.errormessage += "\n"
+    }
+    this.loading = false;
+  }
+
+  redirectToLogin() {
+    alert("Register successful! You'll be redirected to the login page.");
+    this.router.navigateByUrl("/login");
   }
 
   get f() { return this.regisForm.controls; }

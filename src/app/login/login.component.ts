@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import { AuthAPIService } from '../_shared/services/auth-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private form: FormBuilder,
-    public APIAuth: AuthAPIService
+    public APIAuth: AuthAPIService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,17 +40,25 @@ export class LoginFormComponent implements OnInit {
 
     this.data.value.password = CryptoJS.SHA512(this.loginForm.value.password).toString();
     this.APIAuth.login(this.data.value).subscribe(
-      result => {
-        this.data = result; console.log(this.data);
+      result => { 
+        this.data = result; console.log(this.data); 
         this.APIAuth.verify(this.data).subscribe(
           result => {
             this.data = result; console.log(this.data)
             this.APIAuth.setSession(this.data);
           }
         );
+        this.successLogin(this.data.token);
       },
       error => { console.log(error); }
     );
+  }
+
+  successLogin(token: string) {
+    localStorage.setItem("token", token);
+    // console.log(localStorage.getItem("token"));
+    alert("Login successful!");
+    this.router.navigateByUrl("/home");
   }
 
   get f() { return this.loginForm.controls; }
