@@ -9,17 +9,17 @@ import { serverResponse } from '../models/serverResponse'
 })
 export class AuthAPIService {
 
-  private urlApi = 'https://umn-pti2019.herokuapp.com/api/register';
+  private urlApi = 'https://umn-pti2019.herokuapp.com';
 
   constructor(
     private http: HttpClient
   ) { }
 
   register(data: any): Observable<serverResponse> {
-    return this.http.post<serverResponse>(`${this.urlApi}/api/ukm`, data);
+    return this.http.post<serverResponse>(`${this.urlApi}/api/register`, data);
   }
 
   login(data: any): Observable<serverResponse> {
-    return;
+    return this.http.post<serverResponse>(`${this.urlApi}/api/login`, data);
   }
 }
