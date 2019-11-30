@@ -19,12 +19,14 @@ import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 export class HomeComponent implements OnInit {
 
   private ukm: UKM = null;
+  private expires_at = '';
 
   constructor(
     private pelayanApi: PelayananAPIService
   ) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem(this.expires_at))
     this.pelayanApi.getAllUKM().subscribe(
       result => { this.ukm = result; console.log(this.ukm); },
       error => { console.log(error); }
