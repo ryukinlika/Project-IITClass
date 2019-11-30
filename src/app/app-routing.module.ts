@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 import { LoginFormComponent } from './login/login.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,8 +31,13 @@ const routes: Routes = [
   },
   {
     path: 'home/:kode',
-    component: UkmDetailComponent,
+    component: UkmDetailComponent
+  },
+  {
+    path: 'user',
+    component: ProfileComponent
   }
+
 ];
 
 @NgModule({

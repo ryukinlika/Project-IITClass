@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthAPIService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  loggedIn = false;
+  username: string = "";
+
+  constructor(
+    private authAPI: AuthAPIService
+  ) { }
 
   ngOnInit() {
+    this.authAPI.username.subscribe(
+      result => {
+        if (result == null) {
+          this.loggedIn = false;
+          this.username = "";
+        }
+        else {
+          this.loggedIn = true;
+          this.username = result;
+        }
+      }
+    )
+  }
+
+
+  logOut() {
+    this.loggedIn = false;
+    this.authAPI.logout();
   }
 
 }
