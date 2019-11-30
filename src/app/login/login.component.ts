@@ -33,12 +33,20 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
+
     this.data = this.loginForm
 
     this.data.value.password = CryptoJS.SHA512(this.loginForm.value.password).toString();
-    console.log(this.data)
     this.APIAuth.login(this.data.value).subscribe(
-      result => { this.data = result; console.log(this.data); },
+      result => {
+        this.data = result; console.log(this.data);
+        this.APIAuth.verify(this.data).subscribe(
+          result => {
+            this.data = result; console.log(this.data)
+            this.APIAuth.setSession(this.data);
+          }
+        );
+      },
       error => { console.log(error); }
     );
   }
