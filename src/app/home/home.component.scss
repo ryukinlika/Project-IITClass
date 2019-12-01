@@ -1,12 +1,12 @@
 .kartu-grid {
-  width: 100%;
+  width: 50%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 10px;
 
   img {
     width: 100%;
-    height: 230px;
+    height: 300px;
   }
 }
 
@@ -17,29 +17,29 @@
   padding-right: 12px;
 }
 
-.card {
-  padding: 24 px;
-  width: 100%;
-  float: left;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  height: 450px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
+// .card {
+//   padding: 24 px;
+//   width: 100%;
+//   float: left;
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+//   transition: 0.3s;
+//   border-radius: 5px;
+//   height: 450px;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+// }
 
-.card img {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+// .card img {
+//   position: relative;
+//   width: 100px;
+//   height: 100px;
+//   background-position: 50% 50%;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
+// .card:hover {
+//   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+// }
 
 .masthead {
   height: 50vh;
@@ -57,7 +57,13 @@
 }
 
 .logosettings {
-  text-align: center;
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.paragraph-settings {
+  grid-column: 2/3;
 }
 
 body {
@@ -118,4 +124,18 @@ body {
         width: 150px;
         padding: 0 6px;
     }
+}
+
+.mat-tab-group {
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: black;
+    background-color: grey;
+  }
+
+  .css-grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 20px;
 }
