@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { style, transition, animate, trigger, state } from '@angular/animations';
 import { UKM } from '../_shared/models/ukm';
 import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
 
   private ukm: UKM = null;
   private expires_at = '';
+  Arr = Array;
+  num: number = 5;
 
   constructor(
     private pelayanApi: PelayananAPIService
@@ -32,6 +34,4 @@ export class HomeComponent implements OnInit {
       error => { console.log(error); }
     );
   }
-
-
 }

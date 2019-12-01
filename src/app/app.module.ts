@@ -1,3 +1,4 @@
+import { AngularMaterialModule } from './angular-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +20,7 @@ import { LoginFormComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     UkmDetailComponent,
     UkmcodeComponent,
     LoginFormComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ProfileComponent } from './profile/profile.component';
     AnimateOnScrollModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
