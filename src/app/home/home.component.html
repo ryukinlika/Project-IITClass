@@ -19,38 +19,35 @@
   </div>
 </header>
 
-<div class="jumbotron container center">
-  <h1 class="text-center m-3">Unit Kegiatan Mahasiswa</h1>
-</div>
 
 <div class="container center">
   <mat-tab-group>
     <mat-tab label="Athletics">
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
+      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms?.kode}}">
         <div *ngIf="ukms.kode.includes('OL')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>
 
     <mat-tab label="Art & Culture">
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
+      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms?.kode}}">
         <div *ngIf="ukms.kode.includes('SB')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>
 
     <mat-tab label="Science & Social">
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
+      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms?.kode}}">
         <div *ngIf="ukms.kode.includes('SS')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>

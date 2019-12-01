@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+
+  }
 
   public getData() {
     return this.httpClient.get(`https://umn-pti2019.herokuapp.com/api/ukm`);

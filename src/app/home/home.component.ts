@@ -24,14 +24,13 @@ export class HomeComponent implements OnInit {
   num: number = 5;
 
   constructor(
-    private pelayanApi: PelayananAPIService
-  ) { }
+    private pelayanApi: PelayananAPIService) { }
 
   ngOnInit() {
     console.log(localStorage.getItem(this.expires_at))
     this.pelayanApi.getAllUKM().subscribe(
       result => { this.ukm = result; console.log(this.ukm); },
-      error => { console.log(error); }
+      error => { console.log(error); },
     );
   }
 }

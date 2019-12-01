@@ -6,6 +6,7 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_shared/component/header/header.component';
@@ -41,7 +42,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
