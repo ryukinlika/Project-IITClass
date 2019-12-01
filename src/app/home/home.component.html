@@ -19,13 +19,13 @@
   </div>
 </header>
 
-<div class="jumbotron container center">
-  <h1 class="text-center m-3">Unit Kegiatan Mahasiswa</h1>
-</div>
-
 <div class="container center">
   <mat-tab-group>
-    <mat-tab label="Athletics">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img src="./.././../assets/images/athletics.png" class="tab-icon">
+        <span>Athletics</span>
+      </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('OL')" class="css-grid">
           <img src="{{ukms.foto}}" class="card-img-top logosettings">
@@ -35,7 +35,11 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="Art & Culture">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img src="./.././../assets/images/art.png" class="tab-icon">
+        <span>Art & Culture</span>
+      </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('SB')" class="css-grid">
           <img src="{{ukms.foto}}" class="card-img-top logosettings">
@@ -45,7 +49,11 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="Science & Social">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img src="./.././../assets/images/sciencesocial.png" class="tab-icon">
+        <span>Science & Social</span>
+      </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('SS')" class="css-grid">
           <img src="{{ukms.foto}}" class="card-img-top logosettings">

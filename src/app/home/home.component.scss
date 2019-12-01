@@ -131,11 +131,16 @@ body {
     padding: 5px;
     background-color: transparent;
     color: black;
-    background-color: grey;
+    background-color: #343A40;
   }
 
   .css-grid {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: 20px;
+}
+
+.tab-icon { 
+  filter: invert(100%); 
+  width: 10%;
 }
