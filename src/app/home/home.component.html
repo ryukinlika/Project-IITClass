@@ -19,6 +19,7 @@
   </div>
 </header>
 
+
 <div class="container center">
   <mat-tab-group>
     <mat-tab>
@@ -28,9 +29,9 @@
       </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('OL')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>
@@ -42,12 +43,13 @@
       </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('SB')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>
+
 
     <mat-tab>
       <ng-template mat-tab-label>
@@ -56,9 +58,9 @@
       </ng-template>
       <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
         <div *ngIf="ukms.kode.includes('SS')" class="css-grid">
-          <img src="{{ukms.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms.nama}}</h3>
-          <p class="paragraph-settings">{{ukms.deskripsi}}</p>
+          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
+          <h3>{{ukms?.nama}}</h3>
+          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
         </div>
       </div>
     </mat-tab>
