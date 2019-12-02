@@ -2,7 +2,6 @@ import { AngularMaterialModule } from './angular-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -38,7 +37,6 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AnimateOnScrollModule.forRoot(),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
