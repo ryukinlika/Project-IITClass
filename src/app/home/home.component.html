@@ -21,14 +21,14 @@
 
 
 <div class="container center">
-  <mat-tab-group>
+  <mat-tab-group style="min-height:800px;">
     <mat-tab>
       <ng-template mat-tab-label>
         <img src="./.././../assets/images/athletics.png" class="tab-icon">
         <span>Athletics</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
-        <div *ngIf="ukms.kode.includes('OL')" class="css-grid">
+      <div *ngFor="let ukms of ukm.result.ukm" routerLink="../ukmdetail/{{ukms.kode}}">
+        <div *ngIf="ukms.kode.includes('OL')" class="css-grid card">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
