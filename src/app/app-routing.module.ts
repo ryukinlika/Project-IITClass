@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 import { LoginFormComponent } from './login/login.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -24,10 +23,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginFormComponent, pathMatch: 'full'
-  },
-  {
-    path: 'ukmcode',
-    component: UkmcodeComponent
   },
   {
     path: 'home/:kode',

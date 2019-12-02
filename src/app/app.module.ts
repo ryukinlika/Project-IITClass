@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UkmcodeComponent } from './ukmcode/ukmcode.component';
 
 import { LoginFormComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -29,7 +28,6 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     RegisterComponent,
     UkmDetailComponent,
-    UkmcodeComponent,
     LoginFormComponent,
     ProfileComponent,
   ],

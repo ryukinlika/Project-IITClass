@@ -42,11 +42,9 @@ export class UkmDetailComponent implements OnInit {
     this.cAt = new Date(parseInt(param1, 10));
     this.uAt = new Date(parseInt(param2, 10));
     this.createdAt = new Date(this.cAt.getTime() - (this.cAt.getTimezoneOffset() * 60000))
-      .toISOString()
-      .split("T")[0];
+      .toLocaleDateString()
     this.updatedAt = new Date(this.uAt.getTime() - (this.uAt.getTimezoneOffset() * 60000))
-      .toISOString()
-      .split("T")[0];
+      .toLocaleDateString()
     return;
   }
 }
