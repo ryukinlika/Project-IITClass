@@ -45,18 +45,18 @@ export class LoginFormComponent implements OnInit {
         this.data = result; console.log(this.data);
         this.APIAuth.verify(this.data).subscribe(
           result => {
-            this.data = result; console.log(this.data)
+            this.data = result; //console.log(this.data)
             this.APIAuth.setSession(this.data);
           }
         );
-        this.successLogin(this.data.token);
+        this.successLogin(this.data);
       },
       error => { console.log(error); }
     );
   }
 
-  successLogin(token: string) {
-    localStorage.setItem("token", token);
+  successLogin(data: any) {
+    localStorage.setItem("token", data.token);
     // console.log(localStorage.getItem("token"));
     alert("Login successful!");
     this.router.navigateByUrl("/home");
