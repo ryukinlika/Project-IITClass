@@ -67,81 +67,89 @@
 }
 
 body {
-    background-image: linear-gradient(to right , #cb2d3e , #ef473a);
+  background-image: linear-gradient(to right, #cb2d3e, #ef473a);
 }
 
 .searchBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:  translate(-50%,50%);
-    background: #2f3640;
-    height: 60px;
-    border-radius: 40px;
-    padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #2f3640;
+  height: 60px;
+  border-radius: 40px;
+  padding: 10px;
 
 }
 
-.searchBox:hover > .searchInput {
-    width: 240px;
-    padding: 0 6px;
+.searchBox:hover>.searchInput {
+  width: 240px;
+  padding: 0 6px;
 }
 
-.searchBox:hover > .searchButton {
+.searchBox:hover>.searchButton {
   background: white;
-  color : #2f3640;
+  color: #2f3640;
 }
 
 .searchButton {
-    color: white;
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
 }
 
 .searchInput {
-    border:none;
-    background: none;
-    outline:none;
-    float:left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 100px;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 100px;
 
 }
 
 @media screen and (max-width: 620px) {
-    .searchBox:hover > .searchInput {
-        width: 150px;
-        padding: 0 6px;
-    }
+  .searchBox:hover>.searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
 }
 
 
 .mat-tab-group {
-    min-width: 25px !important;
-    padding: 5px;
-    background-color: transparent;
-    color: black;
-    background-color: #343A40;
-  }
-
-.css-grid {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-gap: 20px;
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  background-color: #343A40;
 }
 
-.tab-icon { 
-  filter: invert(100%); 
+.css-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 20px;
+}
+
+.tab-icon {
+  filter: invert(100%);
   width: 10%;
+}
+
+.animated {
+  visibility: visible !important;
+}
+
+.hide-on-init {
+  visibility: hidden;
 }

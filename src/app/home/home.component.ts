@@ -27,10 +27,14 @@ export class HomeComponent implements OnInit {
     private pelayanApi: PelayananAPIService) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem(this.expires_at))
-    this.pelayanApi.getAllUKM().subscribe(
-      result => { this.ukm = result; console.log(this.ukm); },
-      error => { console.log(error); },
-    );
+
+    // console.log(localStorage.getItem(this.expires_at));
+    this.pelayanApi
+      .getAllUKM()
+      .subscribe(result => {
+        this.ukm = result;
+        // console.log(this.ukm);
+      },
+        error => { console.log(error); });
   }
 }
