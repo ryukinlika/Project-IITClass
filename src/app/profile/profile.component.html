@@ -1,7 +1,60 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-10 offset-md-1 mt-5">
-            <div>bruh</div>
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card">
+                <img [src]="user.result.user.foto" class="card-img-top rounded-sm">
+                <div class="card-header">
+                    <h3 class="card-title text-center m-0"> {{user.result.user.user_name}} <button type="button"
+                            class="btn btn-info btn-sm">
+                            <img src="./.././../assets/images/edit.png" style="height: 15px; width: 15px;" />
+                            Edit
+                        </button></h3>
+
+                </div>
+                <div class="card-body p-0">
+                    <div class="row p-0 m-0 rounded">
+                        <div class="col-md-4 m-0">
+                            Full Name
+                        </div>
+                        <div class="col-md-8 m-0 border-left border-secondary">
+                            {{user.result.user.nama_lengkap}}
+                        </div>
+                    </div>
+                    <div class="row p-0 m-0 rounded">
+                        <div class="col-md-4 m-0">
+                            Email
+                        </div>
+                        <div class="col-md-8 m-0 border-left border-secondary">
+                            {{user.result.user.email}}
+                        </div>
+                    </div>
+                    <div class="row p-0 m-0 rounded">
+                        <div class="col-md-4 m-0">
+                            Birth Date
+                        </div>
+                        <div class="col-md-8 m-0 border-left border-secondary">
+                            {{user.result.user.tanggal_lahir}}
+                        </div>
+                    </div>
+                    <div class="row p-0 m-0 rounded">
+                        <div class="col-md-4 m-0">
+                            Phone Number
+                        </div>
+                        <div class="col-md-8 m-0 border-left border-secondary">
+                            {{user.result.user.telepon}}
+                        </div>
+                    </div>
+                    <div class="row p-0 m-0 rounded">
+                        <div class="col-md-4 m-0">
+                            Address
+                        </div>
+                        <div class="col-md-8 m-0 border-left border-secondary">
+                            {{user.result.user.alamat}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

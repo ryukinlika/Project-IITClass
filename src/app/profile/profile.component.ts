@@ -8,15 +8,15 @@ import { serverResponse } from '../_shared/models/serverResponse';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  private profile: serverResponse;
+  private user?: serverResponse = JSON.parse(localStorage.getItem("user"));
 
   constructor(
     private authAPI: AuthAPIService
   ) {
-    this.authAPI.verify(localStorage.getItem("token"));
   }
 
   ngOnInit() {
+    this.authAPI.checkAuth(this.user);
 
   }
 
