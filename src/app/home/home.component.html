@@ -41,8 +41,8 @@
         <img src="./.././../assets/images/art.png" class="tab-icon">
         <span>Art & Culture</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
-        <div *ngIf="ukms.kode.includes('SB')" class="css-grid">
+      <div *ngFor="let ukms of ukm.result.ukm" routerLink="../ukmdetail/{{ukms.kode}}">
+        <div *ngIf="ukms.kode.includes('SB')" class="css-grid card">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
@@ -56,8 +56,8 @@
         <img src="./.././../assets/images/sciencesocial.png" class="tab-icon">
         <span>Science & Social</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm.result.ukm" class="card" routerLink="../ukmdetail/{{ukms.kode}}">
-        <div *ngIf="ukms.kode.includes('SS')" class="css-grid">
+      <div *ngFor="let ukms of ukm.result.ukm" routerLink="../ukmdetail/{{ukms.kode}}">
+        <div *ngIf="ukms.kode.includes('SS')" class="css-grid card">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
