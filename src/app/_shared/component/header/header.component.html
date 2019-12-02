@@ -8,11 +8,11 @@
     <li class="nav-item">
       <a class="nav-link" href="#">View All UKM</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/ukmcode">View UKM by Code</a>
-    </li>
-    <li class="nav-item">
+    <li *ngIf="loggedIn" class="nav-item">
       <a class="nav-link" href="#">Add New UKM</a>
+    </li>
+    <li *ngIf="loggedIn" class="nav-item">
+      <a class="nav-link" href="#">Update UKM</a>
     </li>
   </ul>
   <ul *ngIf="!loggedIn" class="navbar-nav ml-auto">
