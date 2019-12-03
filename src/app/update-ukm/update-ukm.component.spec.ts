@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UkmcodeComponent } from './ukmcode.component';
+import { UpdateUkmComponent } from './update-ukm.component';
 
-describe('UkmcodeComponent', () => {
-  let component: UkmcodeComponent;
-  let fixture: ComponentFixture<UkmcodeComponent>;
+describe('UpdateUkmComponent', () => {
+  let component: UpdateUkmComponent;
+  let fixture: ComponentFixture<UpdateUkmComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UkmcodeComponent ]
+      declarations: [ UpdateUkmComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UkmcodeComponent);
+    fixture = TestBed.createComponent(UpdateUkmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

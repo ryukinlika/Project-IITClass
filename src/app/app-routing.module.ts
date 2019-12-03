@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginFormComponent } from './login/login.component';
 import { UkmDetailComponent } from './ukm-detail/ukm-detail.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddUkmComponent } from './add-ukm/add-ukm.component';
+import { UpdateUkmComponent } from './update-ukm/update-ukm.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,8 +27,12 @@ const routes: Routes = [
     component: LoginFormComponent, pathMatch: 'full'
   },
   {
-    path: 'home/:kode',
-    component: UkmDetailComponent
+    path: 'Add-Ukm',
+    component: AddUkmComponent
+  },
+  {
+    path: 'Update-Ukm',
+    component: UpdateUkmComponent
   },
   {
     path: 'user',

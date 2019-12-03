@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LoginFormComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddUkmComponent } from './add-ukm/add-ukm.component';
+import { UpdateUkmComponent } from './update-ukm/update-ukm.component';
 
 
 
@@ -30,6 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     UkmDetailComponent,
     LoginFormComponent,
     ProfileComponent,
+    AddUkmComponent,
+    UpdateUkmComponent,
   ],
   imports: [
     BrowserModule,

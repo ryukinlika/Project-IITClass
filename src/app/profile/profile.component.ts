@@ -9,6 +9,7 @@ import { serverResponse } from '../_shared/models/serverResponse';
 })
 export class ProfileComponent implements OnInit {
   private user?: serverResponse = JSON.parse(localStorage.getItem("user"));
+  edit = false;
 
   constructor(
     private authAPI: AuthAPIService
@@ -18,6 +19,11 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authAPI.checkAuth(this.user);
 
+  }
+
+  Update_Profile() {
+    this.edit = true;
+    return;
   }
 
 }
