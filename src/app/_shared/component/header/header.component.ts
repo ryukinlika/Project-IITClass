@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   loggedIn = false;
   username: string = "";
 
+
   constructor(
     private authAPI: AuthAPIService
   ) { }
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
         }
       }
     )
+
   }
 
 
