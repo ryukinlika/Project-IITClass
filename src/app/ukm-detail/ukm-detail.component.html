@@ -1,29 +1,35 @@
-<div class="container center col-md-10">
-  <div class="detail-grid">
-    <div class="grid-1">
-      <img src="{{ukm?.result.foto}}" class="img-responsive foto">
-    </div>
-    <div class="grid-4">
-      <h4 *ngIf="ukm?.result.jam_selesai!='null'; else elseBlock">
-        Nama UKM : {{ukm?.result.nama}}<br>
-        Kode UKM : {{ukm?.result.kode}}<br>
-        Anggota UKM : {{ukm?.result.anggota}}<br>
-        Waktu UKM : {{ukm?.result.jam_mulai}} - {{ukm?.result.jam_selesai}}
-      </h4>
-      <ng-template #elseBlock>
-        Nama UKM : {{ukm?.result.nama}}<br>
-        Kode UKM : {{ukm?.result.kode}}<br>
-        Anggota UKM : {{ukm?.result.anggota}}<br>
-        Waktu UKM: {{ukm?.result.jam_mulai}} - Selesai
-      </ng-template>
-      <p>{{ukm?.result.deskripsi}}</p>
-      <p>{{setDate(ukm?.result.created_at, ukm?.result.updated_at)}}</p>
-      <p> Created at : {{createdAt}}, Last updated at : {{updatedAt}}</p>
-    </div>
-    <div class="grid-3">
-    </div>
-    <div class="grid-2">
-      <button class="btn btn-secondary" routerLink="/home">Back to Home</button>
+<section class="hero-section spad">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-10 offset-xl-1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="hero-info">
+              <h1>Detail UKM</h1>
+              <br>
+              <ul>
+                <li><span>Nama UKM</span>{{ukm?.result.nama}}</li>
+                <li><span>Kode UKM</span>{{ukm?.result.kode}}</li>
+                <li><span>Anggota</span>{{ukm?.result.anggota}}</li>
+                <li><span>Waktu</span>{{ukm?.result.jam_mulai}} - {{ukm?.result.jam_selesai}}</li>
+              </ul>
+              <br>
+            </div>
+            <p>{{ukm?.result.deskripsi}}</p>
+            <p>{{setDate(ukm?.result.created_at, ukm?.result.updated_at)}}</p>
+            <p> Created at : {{createdAt}}, Last updated at : {{updatedAt}}</p>
+            <button class="btn btn-secondary" routerLink="/home">Back to Home</button>
+            <button *ngIf="loggedIn" class="btn btn-secondary edit-button"
+              routerLink="/Update-Ukm/{{ukm?.result.kode}}">Edit
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <figure class="hero-image">
+              <img src="{{ukm?.result.foto}}" class="img-responsive foto">
+            </figure>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

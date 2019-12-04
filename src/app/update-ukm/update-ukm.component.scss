@@ -1,0 +1,22 @@
+.detail-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+
+  &.grid-1 {
+    grid-auto-columns: 0/1;
+  }
+
+}
+
+.foto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.edit-button {
+  margin-left: 20px;
+}

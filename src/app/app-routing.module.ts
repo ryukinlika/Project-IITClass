@@ -31,7 +31,7 @@ const routes: Routes = [
     component: AddUkmComponent
   },
   {
-    path: 'Update-Ukm',
+    path: 'Update-Ukm/:kode',
     component: UpdateUkmComponent
   },
   {

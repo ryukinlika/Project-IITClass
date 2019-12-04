@@ -1,29 +1,24 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
+    <li class="nav-item nav-link home-button" routerLink="/home">
       <a>
         <img src="./.././.././.././../assets/images/logo-02.png" width="80" height="40" />
       </a>
     </li>
-    <li class="nav-item nav-link" routerLink="/home">
-      View All UKM
-    </li>
+
     <li *ngIf="loggedIn" class="nav-item nav-link" routerLink="/Add-Ukm">
       Add New UKM
-    </li>
-    <li *ngIf="loggedIn" class="nav-item nav-link" routerLink="/Update-Ukm">
-      Update UKM
     </li>
   </ul>
   <ul *ngIf="!loggedIn" class="navbar-nav ml-auto">
     <li class="nav-item">
       <button type="button" class="btn btn-light" routerLink="/register" style="margin: 5px; float: right;">
-        Sign me up!
+        Sign Up
       </button>
     </li>
     <li class="nav-item">
       <button type="button" class="btn btn-outline-light" routerLink="/login" style="margin: 5px; float: right;">
-        Log In!
+        Log In
       </button>
     </li>
   </ul>
