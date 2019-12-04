@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   private data: any;
   private token = localStorage.getItem("token");
   private response: any;
+  private edit: boolean;
 
   private fullname: string = this.user.result.user.nama_lengkap;
   private address: string = this.user.result.user.alamat;
@@ -60,22 +61,16 @@ export class ProfileComponent implements OnInit {
     console.log(this.data);
     this.authAPI.update(this.data).subscribe(
       result => {
-        console.log(result);
         this.response = result;
         this.token = this.response.token;
         localStorage.setItem("token", this.token);
-        // this.authAPI.verify(JSON.parse(`{"token": "${this.token}"}`)).subscribe(
-        //   result => {
-        //     console.log("==============");
-        //     console.log(result);
-        //   }
-        // )
 
         this.user.result.user.nama_lengkap = this.fullname;
         this.user.result.user.foto = this.photo;
         this.user.result.user.alamat = this.address;
         this.user.result.user.tanggal_lahir = this.bdate;
-        localStorage.setItem("user", this.user);
+        this.user.result.user.token = this.token
+        localStorage.setItem("user", JSON.stringify(this.user));
 
         this.ngOnInit();
       },
