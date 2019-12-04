@@ -1,25 +1,45 @@
-<div class="container center col-md-10">
-    <div class="detail-grid">
-        <div class="grid-1">
-            <img src="{{ukm?.result.foto}}" class="img-responsive foto">
-        </div>
-        <div class="grid-4">
-            <h4>
-                Nama UKM : <input type="text"><br>
-                Kode UKM : {{ukm?.result.kode}}<br>
-                Anggota UKM : {{ukm?.result.anggota}}<br>
-                <div *ngIf="ukm?.result.jam_selesai!='null'; else elseBlock">
-                    Waktu UKM : {{ukm?.result.jam_mulai}} - {{ukm?.result.jam_selesai}}
+<section class="hero-section spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero-info">
+                            <ul>
+                                <form class="contact-form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Jumlah Anggota"
+                                                value="{{ukm.result.anggota}}">
+                                        </div>
+                                        <div class=" col-md-6">
+                                            <input type="time" value="{{ukm.result.jam_mulai}}">
+                                        </div>
+                                        <div class=" col-md-6">
+                                            <input type="time" placeholder="Jam Selesai"
+                                                value="{{ukm.result.jam_selesai}}">
+                                        </div>
+                                        <div class=" col-md-12">
+                                            <textarea placeholder="Deskripsi"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </ul>
+                            <br>
+                        </div>
+                        <button class="btn btn-secondary" (click)="save()">Save
+                            Changes</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="hero-image">
+                            <img src="{{ukm?.result.foto}}" class="img-responsive foto">
+                        </figure>
+                    </div>
                 </div>
-                <ng-template #elseBlock>
-                    Waktu UKM: {{ukm?.result.jam_mulai}} - Selesai
-                </ng-template>
-            </h4>
-            <p>{{ukm?.result.deskripsi}}</p>
-            <p>{{setDate(ukm?.result.created_at, ukm?.result.updated_at)}}</p>
-            <p> Created at : {{createdAt}}, Last updated at : {{updatedAt}}</p>
-        </div>
-        <div class="grid-3">
+            </div>
         </div>
     </div>
-</div>
+</section>

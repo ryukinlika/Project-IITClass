@@ -8,18 +8,10 @@
         <p class="neglectmasthead" class="lead">Express Yourself</p>
         <div style="padding-top: 30px;">
           <div class="searchBox">
-            <input
-              class="searchInput"
-              type="text"
-              name=""
-              placeholder="Search"
-            />
+            <input class="searchInput" type="text" name="" placeholder="Search" />
             <button class="searchButton" routerLink="#">
               <i class="material-icons">
-                <img
-                  src="./.././../assets/images/magnifier.png"
-                  style="width: 25px;"
-                />
+                <img src="./.././../assets/images/magnifier.png" style="width: 25px;" />
               </i>
             </button>
           </div>
@@ -36,27 +28,15 @@
         <img src="./.././../assets/images/athletics.png" class="tab-icon" />
         <span style="color: white">Athletics</span>
       </ng-template>
-      <div
-        *ngFor="let ukms of ukm?.result.ukm"
-        routerLink="../ukmdetail/{{ ukms.kode }}"
-        class="hide-overflow"
-      >
-        <div
-          *ngIf="ukms.kode.includes('OL')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+      <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ ukms.kode }}" class="hide-overflow">
+        <div *ngIf="ukms.kode.includes('OL')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <!-- <img src="{{ ukms?.foto }}" class="card-img-top logosettings" />
             <h3>{{ ukms?.nama }}</h3>
             <p class="paragraph-settings">{{ ukms?.deskripsi }}</p>
             <a href="#"></a> -->
 
           <div class="card flex-row flex-wrap p-2">
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img src="{{ ukms?.foto }}" />
             </div>
             <div class="card-block w-75">
@@ -65,10 +45,7 @@
                 {{ ukms?.deskripsi }}
               </p>
               <a routerLink="login" class="btn btn-primary">BUTTON</a>
-              <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>
@@ -83,17 +60,9 @@
         <span style="color: white">Art & Culture</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm">
-        <div
-          *ngIf="ukms.kode.includes('SB')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="ukms.kode.includes('SB')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img src="{{ ukms?.foto }}" />
             </div>
             <div class="card-block w-75">
@@ -102,10 +71,7 @@
                 {{ ukms?.deskripsi }}
               </p>
               <a routerLink="login" class="btn btn-primary">BUTTON</a>
-              <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>
@@ -119,21 +85,10 @@
         <img src="./.././../assets/images/sciencesocial.png" class="tab-icon" />
         <span style="color: white">Science & Social</span>
       </ng-template>
-      <div
-        *ngFor="let ukms of ukm?.result.ukm"
-        routerLink="../ukmdetail/{{ ukms?.kode }}"
-      >
-        <div
-          *ngIf="ukms.kode.includes('SS')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+      <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ ukms?.kode }}">
+        <div *ngIf="ukms.kode.includes('SS')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img src="{{ ukms?.foto }}" />
             </div>
             <div class="card-block w-75">
@@ -142,10 +97,7 @@
                 {{ ukms?.deskripsi }}
               </p>
               <a routerLink="login" class="btn btn-primary">BUTTON</a>
-              <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>
@@ -158,13 +110,8 @@
 
 <div class="container center bio">
   <div class="row">
-    <div
-      class="card"
-      style="width: 15rem; margin: 20px;"
-      data-aos="fade-up"
-      data-aos-duration="2000"
-      data-aos-delay="500"
-    >
+    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
+      data-aos-delay="500">
       <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
         <p class="card-text">
@@ -174,13 +121,8 @@
       </div>
     </div>
 
-    <div
-      class="card"
-      style="width: 15rem; margin: 20px;"
-      data-aos="fade-up"
-      data-aos-duration="2000"
-      data-aos-delay="600"
-    >
+    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
+      data-aos-delay="600">
       <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
         <p class="card-text">
@@ -190,13 +132,8 @@
       </div>
     </div>
 
-    <div
-      class="card"
-      style="width: 15rem; margin: 20px;"
-      data-aos="fade-up"
-      data-aos-duration="2000"
-      data-aos-delay="700"
-    >
+    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
+      data-aos-delay="700">
       <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
         <p class="card-text">
@@ -206,13 +143,8 @@
       </div>
     </div>
 
-    <div
-      class="card"
-      style="width: 15rem; margin: 20px;"
-      data-aos="fade-up"
-      data-aos-duration="2000"
-      data-aos-delay="800"
-    >
+    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
+      data-aos-delay="800">
       <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
         <p class="card-text">
