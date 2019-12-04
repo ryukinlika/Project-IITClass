@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 import { UKM } from '../_shared/models/ukm';
-import { setDefaultService } from 'selenium-webdriver/chrome';
+import { AuthAPIService } from '../_shared/services/auth-api.service';
+
 
 
 @Component({
@@ -13,8 +14,10 @@ import { setDefaultService } from 'selenium-webdriver/chrome';
 })
 export class UkmDetailComponent implements OnInit {
 
-  public ukm: UKM = null;
+  loggedIn = false;
+  username: string = "";
 
+  public ukm: UKM = null;
   public cAt: Date;
   public createdAt: string;
   public uAt: Date;
@@ -22,7 +25,8 @@ export class UkmDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pelayanAPI: PelayananAPIService
+    private pelayanAPI: PelayananAPIService,
+    private authAPI: AuthAPIService
   ) { }
 
   ngOnInit() {
@@ -35,7 +39,18 @@ export class UkmDetailComponent implements OnInit {
       )
     })
 
-
+    this.authAPI.username.subscribe(
+      result => {
+        if (result == null) {
+          this.loggedIn = false;
+          this.username = "";
+        }
+        else {
+          this.loggedIn = true;
+          this.username = result;
+        }
+      }
+    )
   }
 
   setDate(param1: string, param2: string) {

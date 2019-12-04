@@ -25,11 +25,11 @@
     <mat-tab>
       <ng-template mat-tab-label>
         <img src="./.././../assets/images/athletics.png" class="tab-icon">
-        <span>Athletics</span>
+        <span style="color: white">Athletics</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms.kode}}" class="hide-overflow">
-        <div *ngIf="ukms.kode.includes('OL')" class="css-grid card" data-aos="fade-right" data-aos-duration="2000"
-          data-aos-delay="500">
+        <div *ngIf="ukms.kode.includes('OL')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
+          data-aos-delay="100">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
@@ -40,11 +40,11 @@
     <mat-tab>
       <ng-template mat-tab-label>
         <img src="./.././../assets/images/art.png" class="tab-icon">
-        <span>Art & Culture</span>
+        <span style="color: white">Art & Culture</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms?.kode}}">
-        <div *ngIf="ukms.kode.includes('SB')" class="css-grid card" data-aos="fade-right" data-aos-duration="2000"
-          data-aos-delay="500">
+        <div *ngIf="ukms.kode.includes('SB')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
+          data-aos-delay="100">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
@@ -56,11 +56,11 @@
     <mat-tab>
       <ng-template mat-tab-label>
         <img src="./.././../assets/images/sciencesocial.png" class="tab-icon">
-        <span>Science & Social</span>
+        <span style="color: white">Science & Social</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms?.kode}}">
-        <div *ngIf="ukms.kode.includes('SS')" class="css-grid card" data-aos="fade-right" data-aos-duration="2000"
-          data-aos-delay="500">
+        <div *ngIf="ukms.kode.includes('SS')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
+          data-aos-delay="100">
           <img src="{{ukms?.foto}}" class="card-img-top logosettings">
           <h3>{{ukms?.nama}}</h3>
           <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
