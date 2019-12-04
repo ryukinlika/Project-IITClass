@@ -37,7 +37,7 @@ export class LoginFormComponent implements OnInit {
     }
 
 
-    this.data = this.loginForm
+    this.data = this.loginForm;
     console.log(this.data.value);
     this.data.value.password = CryptoJS.SHA512(this.data.value.password).toString();
     this.APIAuth.login(this.data.value).subscribe(

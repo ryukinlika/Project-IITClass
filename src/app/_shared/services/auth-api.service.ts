@@ -39,6 +39,10 @@ export class AuthAPIService {
     return this.http.post<serverResponse>(`${this.urlApi}/api/verify`, data);
   }
 
+  update(data: string): Observable<serverResponse> {
+    return this.http.put<serverResponse>(`${this.urlApi}/api/update`, data);
+  }
+
   setSession(data: any) {
     this.date = new Date(parseInt(data.result.exp))
     this.exp = (this.date.getTime() * 1000).toString()
@@ -67,6 +71,7 @@ export class AuthAPIService {
     this.usernameSource.next(null);
     this.router.navigateByUrl('/home');
   }
+
 
   checkAuth(data: any) {
     if (data == null || localStorage.getItem("user_name") == null) {
