@@ -9,7 +9,8 @@ import { serverResponse } from '../_shared/models/serverResponse';
 })
 export class ProfileComponent implements OnInit {
   private user?: serverResponse = JSON.parse(localStorage.getItem("user"));
-  edit = false;
+
+  private edit = false;
 
   constructor(
     private authAPI: AuthAPIService
@@ -21,9 +22,5 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  Update_Profile() {
-    this.edit = true;
-    return;
-  }
 
 }

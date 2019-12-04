@@ -5,7 +5,7 @@
         <img [src]="user.result.user.foto" class="card-img-top rounded-sm">
         <div class="card-header">
           <h3 class="card-title text-center m-0"> {{user.result.user.user_name}} <button type="button"
-              class="btn btn-info btn-sm">
+              class="btn btn-info btn-sm" (click)="edit = !edit">
               <img src="./.././../assets/images/edit.png" style="height: 15px; width: 15px;" />
               Edit
             </button></h3>
@@ -16,7 +16,7 @@
             <div class="col-md-4 m-0">
               Full Name
             </div>
-            <div class="col-md-8 m-0 border-left border-secondary">
+            <div class="col-md-8 m-0 border-left border-secondary" *ngIf="!edit">
               {{user.result.user.nama_lengkap}}
             </div>
           </div>
