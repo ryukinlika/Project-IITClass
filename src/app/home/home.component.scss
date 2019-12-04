@@ -1,15 +1,3 @@
-.kartu-grid {
-  width: 50%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 10px;
-
-  img {
-    width: 100%;
-    height: 300px;
-  }
-}
-
 .card-container {
   width: 100%;
   padding-top: 80px;
@@ -20,7 +8,7 @@
 .masthead {
   height: 50vh;
   min-height: 500px;
-  background-image: url('./.././../assets/images/umnbg.jpg');
+  background-image: url("./.././../assets/images/umnbg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,15 +43,14 @@ body {
   height: 60px;
   border-radius: 40px;
   padding: 10px;
-
 }
 
-.searchBox:hover>.searchInput {
+.searchBox:hover > .searchInput {
   width: 240px;
   padding: 0 6px;
 }
 
-.searchBox:hover>.searchButton {
+.searchBox:hover > .searchButton {
   background: white;
   color: #2f3640;
 }
@@ -92,30 +79,27 @@ body {
   transition: 0.4s;
   line-height: 40px;
   width: 100px;
-
 }
 
 @media screen and (max-width: 620px) {
-  .searchBox:hover>.searchInput {
+  .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
   }
 }
-
 
 .mat-tab-group {
   min-width: 25px !important;
   padding: 5px;
   background-color: transparent;
   color: black;
-  background-color: #343A40;
+  background-color: #343a40;
 }
 
 .css-grid {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-gap: 20px;
-
 }
 
 .tab-icon {

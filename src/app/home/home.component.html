@@ -2,14 +2,24 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-        <h1 class="neglectmasthead" class="font-weight-light">Unit Kegiatan Mahasiswa</h1>
+        <h1 class="neglectmasthead" class="font-weight-light">
+          Unit Kegiatan Mahasiswa
+        </h1>
         <p class="neglectmasthead" class="lead">Express Yourself</p>
         <div style="padding-top: 30px;">
           <div class="searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search">
+            <input
+              class="searchInput"
+              type="text"
+              name=""
+              placeholder="Search"
+            />
             <button class="searchButton" routerLink="#">
               <i class="material-icons">
-                <img src="./.././../assets/images/magnifier.png" style="width: 25px;">
+                <img
+                  src="./.././../assets/images/magnifier.png"
+                  style="width: 25px;"
+                />
               </i>
             </button>
           </div>
@@ -19,51 +29,115 @@
   </div>
 </header>
 
-
 <div class="container center">
   <mat-tab-group style="min-height:800px;">
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/athletics.png" class="tab-icon">
+        <img src="./.././../assets/images/athletics.png" class="tab-icon" />
         <span style="color: white">Athletics</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms.kode}}" class="hide-overflow">
-        <div *ngIf="ukms.kode.includes('OL')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
-          data-aos-delay="100">
-          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms?.nama}}</h3>
-          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
+      <div
+        *ngFor="let ukms of ukm?.result.ukm"
+        routerLink="../ukmdetail/{{ ukms.kode }}"
+        class="hide-overflow"
+      >
+        <div
+          *ngIf="ukms.kode.includes('OL')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
+          <!-- <img src="{{ ukms?.foto }}" class="card-img-top logosettings" />
+          <h3>{{ ukms?.nama }}</h3>
+          <p class="paragraph-settings">{{ ukms?.deskripsi }}</p>
+          <a href="#"></a> -->
+
+          <div class="card flex-row flex-wrap p-2">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
+              <img src="{{ ukms?.foto }}" />
+            </div>
+            <div class="card-block w-75">
+              <h4 class="card-title">{{ ukms?.nama }}</h4>
+              <p class="card-text ">
+                {{ ukms?.deskripsi }}
+              </p>
+              <a href="#" class="btn btn-primary">BUTTON</a>
+            </div>
+            <div class="w-100"></div>
+          </div>
         </div>
       </div>
     </mat-tab>
 
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/art.png" class="tab-icon">
+        <img src="./.././../assets/images/art.png" class="tab-icon" />
         <span style="color: white">Art & Culture</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms?.kode}}">
-        <div *ngIf="ukms.kode.includes('SB')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
-          data-aos-delay="100">
-          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms?.nama}}</h3>
-          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
+      <div
+        *ngFor="let ukms of ukm?.result.ukm"
+        routerLink="../ukmdetail/{{ ukms?.kode }}"
+      >
+        <div
+          *ngIf="ukms.kode.includes('SB')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
+          <div class="card flex-row flex-wrap p-2">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
+              <img src="{{ ukms?.foto }}" />
+            </div>
+            <div class="card-block w-75">
+              <h4 class="card-title">{{ ukms?.nama }}</h4>
+              <p class="card-text ">
+                {{ ukms?.deskripsi }}
+              </p>
+              <a href="#" class="btn btn-primary">BUTTON</a>
+            </div>
+            <div class="w-100"></div>
+          </div>
         </div>
       </div>
     </mat-tab>
 
-
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/sciencesocial.png" class="tab-icon">
+        <img src="./.././../assets/images/sciencesocial.png" class="tab-icon" />
         <span style="color: white">Science & Social</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm" routerLink="../ukmdetail/{{ukms?.kode}}">
-        <div *ngIf="ukms.kode.includes('SS')" class="css-grid card" data-aos="fade-right" data-aos-duration="500"
-          data-aos-delay="100">
-          <img src="{{ukms?.foto}}" class="card-img-top logosettings">
-          <h3>{{ukms?.nama}}</h3>
-          <p class="paragraph-settings">{{ukms?.deskripsi}}</p>
+      <div
+        *ngFor="let ukms of ukm?.result.ukm"
+        routerLink="../ukmdetail/{{ ukms?.kode }}"
+      >
+        <div
+          *ngIf="ukms.kode.includes('SS')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
+          <div class="card flex-row flex-wrap p-2">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
+              <img src="{{ ukms?.foto }}" />
+            </div>
+            <div class="card-block w-75">
+              <h4 class="card-title">{{ ukms?.nama }}</h4>
+              <p class="card-text ">
+                {{ ukms?.deskripsi }}
+              </p>
+              <a href="#" class="btn btn-primary">BUTTON</a>
+            </div>
+            <div class="w-100"></div>
+          </div>
         </div>
       </div>
     </mat-tab>
@@ -72,46 +146,68 @@
 
 <div class="container center bio">
   <div class="row">
-
-    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
-      data-aos-delay="500">
-      <img src="./.././../assets/images/john-doe.png" class="card-img-top">
+    <div
+      class="card"
+      style="width: 15rem; margin: 20px;"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-delay="500"
+    >
+      <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </div>
     </div>
 
-    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
-      data-aos-delay="600">
-      <img src="./.././../assets/images/john-doe.png" class="card-img-top">
+    <div
+      class="card"
+      style="width: 15rem; margin: 20px;"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-delay="600"
+    >
+      <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </div>
     </div>
 
-    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
-      data-aos-delay="700">
-      <img src="./.././../assets/images/john-doe.png" class="card-img-top">
+    <div
+      class="card"
+      style="width: 15rem; margin: 20px;"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-delay="700"
+    >
+      <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </div>
     </div>
 
-    <div class="card" style="width: 15rem; margin: 20px;" data-aos="fade-up" data-aos-duration="2000"
-      data-aos-delay="800">
-      <img src="./.././../assets/images/john-doe.png" class="card-img-top">
+    <div
+      class="card"
+      style="width: 15rem; margin: 20px;"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-delay="800"
+    >
+      <img src="./.././../assets/images/john-doe.png" class="card-img-top" />
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </div>
     </div>
   </div>
-
 </div>
