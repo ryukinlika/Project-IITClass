@@ -6,7 +6,7 @@
         <div class="grid-4">
             <h4>
                 Nama UKM : <input type="text"><br>
-                Kode UKM : {{ukm?.result.kode}}<br>
+                Kode UKM : <input type="text"><br>
                 Anggota UKM : {{ukm?.result.anggota}}<br>
                 <div *ngIf="ukm?.result.jam_selesai!='null'; else elseBlock">
                     Waktu UKM : {{ukm?.result.jam_mulai}} - {{ukm?.result.jam_selesai}}
