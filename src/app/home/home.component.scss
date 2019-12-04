@@ -115,6 +115,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-gap: 20px;
+
 }
 
 .tab-icon {
@@ -128,4 +129,8 @@ body {
 
 .hide-on-init {
   visibility: hidden;
+}
+
+.hide-overflow {
+  overflow: hidden;
 }
