@@ -39,6 +39,10 @@ export class AuthAPIService {
     return this.http.post<serverResponse>(`${this.urlApi}/api/verify`, data);
   }
 
+  update(data: string): Observable<serverResponse> {
+    return this.http.put<serverResponse>(`${this.urlApi}/api/update`, data);
+  }
+
   setSession(data: any) {
     console.log(data.result.exp);
     this.date = new Date(parseInt(data.result.exp));
@@ -53,9 +57,9 @@ export class AuthAPIService {
     console.log(localStorage.getItem("expires_at"));
 
     localStorage.setItem("user_name", data.result.user.user_name);
-    // console.log(data.result.user.user_name);
+    //console.log(data.result.user.user_name);
     localStorage.setItem("user", JSON.stringify(data));
-    console.log(data);
+    //console.log(data);
     this.userchange();
   }
 
@@ -73,8 +77,9 @@ export class AuthAPIService {
     this.router.navigateByUrl("/home");
   }
 
+
   checkAuth(data: any) {
-    if (data == null) {
+    if (data == null || localStorage.getItem("user_name") == null) {
       alert("Unauthorized!");
       this.logout();
     } else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
