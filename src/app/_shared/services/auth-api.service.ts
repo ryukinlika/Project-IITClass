@@ -43,6 +43,7 @@ export class AuthAPIService {
     return this.http.put<serverResponse>(`${this.urlApi}/api/update`, data);
   }
 
+
   setSession(data: any) {
     console.log(data.result.exp);
     this.date = new Date(parseInt(data.result.exp));

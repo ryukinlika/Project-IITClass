@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { PelayananAPIService } from '../_shared/services/pelayanan-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { UKM } from '../_shared/models/ukm';
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 
@@ -14,27 +17,36 @@ import { UKM } from '../_shared/models/ukm';
 })
 export class UpdateUkmComponent implements OnInit {
 
-  private user?: serverResponse = JSON.parse(localStorage.getItem("user"));
+  private user?: any = JSON.parse(localStorage.getItem("user"));
   edit = false;
 
-  public ukm: UKM = null;
+  public ukm: any;
   public cAt: Date;
   public createdAt: string;
   public uAt: Date;
   public updatedAt: string;
+  private data: any;
+  private kode: string;
+
+  private namaukm: string;
+  private response: any;
+  private token = localStorage.getItem("token");
 
   constructor(
     private authAPI: AuthAPIService,
     private route: ActivatedRoute,
-    private pelayanAPI: PelayananAPIService
+    private pelayanAPI: PelayananAPIService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.authAPI.checkAuth(this.user);
     this.route.params.subscribe(param => {
+      this.kode = param.kode;
       this.pelayanAPI.getUKMbykode(param.kode).subscribe(
         result => {
           this.ukm = result;
+          this.namaukm = this.ukm.result.nama;
         },
         error => { console.log(error) },
       )
@@ -49,5 +61,20 @@ export class UpdateUkmComponent implements OnInit {
     this.updatedAt = new Date(this.uAt.getTime() - (this.uAt.getTimezoneOffset() * 60000))
       .toLocaleDateString()
     return;
+  }
+
+  saveChange() {
+    this.data = JSON.parse(`{"nama": "${this.namaukm}",
+    "token": "${this.token}"}`);
+    this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
+      result => {
+        console.log(result);
+        this.ukm.result.nama = this.namaukm;
+
+        this.ngOnInit();
+
+      }
+    );
+    this.router.navigateByUrl("/ukmdetail/" + this.kode);
   }
 }
