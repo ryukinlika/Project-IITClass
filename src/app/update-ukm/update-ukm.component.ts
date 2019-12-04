@@ -7,7 +7,6 @@ import { UKM } from '../_shared/models/ukm';
 
 
 
-
 @Component({
   selector: 'app-update-ukm',
   templateUrl: './update-ukm.component.html',
@@ -41,5 +40,14 @@ export class UpdateUkmComponent implements OnInit {
       )
     })
 
+  }
+  setDate(param1: string, param2: string) {
+    this.cAt = new Date(parseInt(param1, 10));
+    this.uAt = new Date(parseInt(param2, 10));
+    this.createdAt = new Date(this.cAt.getTime() - (this.cAt.getTimezoneOffset() * 60000))
+      .toLocaleDateString()
+    this.updatedAt = new Date(this.uAt.getTime() - (this.uAt.getTimezoneOffset() * 60000))
+      .toLocaleDateString()
+    return;
   }
 }
