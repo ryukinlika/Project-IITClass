@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as CryptoJS from 'crypto-js';
-import { AuthAPIService } from '../_shared/services/auth-api.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import * as CryptoJS from "crypto-js";
+import { AuthAPIService } from "../_shared/services/auth-api.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginFormComponent implements OnInit {
-
-  loginForm: FormGroup
+  loginForm: FormGroup;
   submitted = false;
 
   private data: any;
@@ -20,12 +19,12 @@ export class LoginFormComponent implements OnInit {
     private form: FormBuilder,
     public APIAuth: AuthAPIService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.form.group({
-      user_name: ['', Validators.required],
-      password: ['', Validators.required],
+      user_name: ["", Validators.required],
+      password: ["", Validators.required],
       remember_me: []
     });
   }
@@ -39,19 +38,23 @@ export class LoginFormComponent implements OnInit {
 
     this.data = this.loginForm;
     console.log(this.data.value);
-    this.data.value.password = CryptoJS.SHA512(this.data.value.password).toString();
+    this.data.value.password = CryptoJS.SHA512(
+      this.data.value.password
+    ).toString();
     this.APIAuth.login(this.data.value).subscribe(
       result => {
-        this.data = result; console.log(this.data);
-        this.APIAuth.verify(this.data).subscribe(
-          result => {
-            this.data = result; //console.log(this.data)
-            this.APIAuth.setSession(this.data);
-          }
-        );
+        this.data = result;
+        console.log(this.data);
+        this.APIAuth.verify(this.data).subscribe(result => {
+          this.data = result;
+          console.log(this.data);
+          this.APIAuth.setSession(this.data);
+        });
         this.successLogin(this.data);
       },
-      error => { console.log(error); }
+      error => {
+        console.log(error);
+      }
     );
   }
 
@@ -62,6 +65,7 @@ export class LoginFormComponent implements OnInit {
     this.router.navigateByUrl("/home");
   }
 
-  get f() { return this.loginForm.controls; }
-
+  get f() {
+    return this.loginForm.controls;
+  }
 }
