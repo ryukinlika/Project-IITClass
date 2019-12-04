@@ -11,7 +11,6 @@ import * as CryptoJS from 'crypto-js';
 })
 export class ProfileComponent implements OnInit {
   private user?: any = JSON.parse(localStorage.getItem("user"));
-  private edit: boolean = false;
   private data: any;
   private token = localStorage.getItem("token");
   private response: any;
