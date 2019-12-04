@@ -36,22 +36,13 @@
         <img src="./.././../assets/images/athletics.png" class="tab-icon" />
         <span style="color: white">Athletics</span>
       </ng-template>
-      <div
-        *ngFor="let ukms of ukm?.result.ukm"
-        routerLink="../ukmdetail/{{ ukms.kode }}"
-        class="hide-overflow"
-      >
+      <div *ngFor="let ukms of ukm?.result.ukm" class="hide-overflow">
         <div
           *ngIf="ukms.kode.includes('OL')"
           data-aos="fade-right"
           data-aos-duration="500"
           data-aos-delay="100"
         >
-          <!-- <img src="{{ ukms?.foto }}" class="card-img-top logosettings" />
-            <h3>{{ ukms?.nama }}</h3>
-            <p class="paragraph-settings">{{ ukms?.deskripsi }}</p>
-            <a href="#"></a> -->
-
           <div class="card flex-row flex-wrap p-2">
             <div
               class="card-header border-0 w-25 my-auto"
@@ -64,7 +55,13 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a routerLink="login" class="btn btn-primary">BUTTON</a>
+              <a
+                routerLink="/login"
+                class="btn btn-primary"
+                (click)="addFave(ukms)"
+                id="{{ ukms?.kode }}"
+                >Add to Favourite</a
+              >
               <a
                 routerLink="../ukmdetail/{{ ukms?.kode }}"
                 class="btn btn-primary m-1"
@@ -119,10 +116,7 @@
         <img src="./.././../assets/images/sciencesocial.png" class="tab-icon" />
         <span style="color: white">Science & Social</span>
       </ng-template>
-      <div
-        *ngFor="let ukms of ukm?.result.ukm"
-        routerLink="../ukmdetail/{{ ukms?.kode }}"
-      >
+      <div *ngFor="let ukms of ukm?.result.ukm">
         <div
           *ngIf="ukms.kode.includes('SS')"
           data-aos="fade-right"
