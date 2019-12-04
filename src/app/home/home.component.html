@@ -48,9 +48,9 @@
           data-aos-delay="100"
         >
           <!-- <img src="{{ ukms?.foto }}" class="card-img-top logosettings" />
-          <h3>{{ ukms?.nama }}</h3>
-          <p class="paragraph-settings">{{ ukms?.deskripsi }}</p>
-          <a href="#"></a> -->
+            <h3>{{ ukms?.nama }}</h3>
+            <p class="paragraph-settings">{{ ukms?.deskripsi }}</p>
+            <a href="#"></a> -->
 
           <div class="card flex-row flex-wrap p-2">
             <div
@@ -64,9 +64,14 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a href="#" class="btn btn-primary">BUTTON</a>
+              <a routerLink="login" class="btn btn-primary">BUTTON</a>
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
+                SEE MORE DETAILS
+              </a>
             </div>
-            <div class="w-100"></div>
           </div>
         </div>
       </div>
@@ -77,10 +82,7 @@
         <img src="./.././../assets/images/art.png" class="tab-icon" />
         <span style="color: white">Art & Culture</span>
       </ng-template>
-      <div
-        *ngFor="let ukms of ukm?.result.ukm"
-        routerLink="../ukmdetail/{{ ukms?.kode }}"
-      >
+      <div *ngFor="let ukms of ukm?.result.ukm">
         <div
           *ngIf="ukms.kode.includes('SB')"
           data-aos="fade-right"
@@ -99,9 +101,14 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a href="#" class="btn btn-primary">BUTTON</a>
+              <a routerLink="login" class="btn btn-primary">BUTTON</a>
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
+                SEE MORE DETAILS
+              </a>
             </div>
-            <div class="w-100"></div>
           </div>
         </div>
       </div>
@@ -134,9 +141,14 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a href="#" class="btn btn-primary">BUTTON</a>
+              <a routerLink="login" class="btn btn-primary">BUTTON</a>
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
+                SEE MORE DETAILS
+              </a>
             </div>
-            <div class="w-100"></div>
           </div>
         </div>
       </div>
