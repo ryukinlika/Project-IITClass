@@ -48,9 +48,9 @@ export class AuthAPIService {
     // console.log(localStorage.getItem("expires_at"));
 
     localStorage.setItem("user_name", data.result.user.user_name);
-    // console.log(data.result.user.user_name);
+    //console.log(data.result.user.user_name);
     localStorage.setItem("user", JSON.stringify(data));
-    console.log(data);
+    //console.log(data);
     this.userchange();
   }
 
@@ -69,7 +69,7 @@ export class AuthAPIService {
   }
 
   checkAuth(data: any) {
-    if (data == null) {
+    if (data == null || localStorage.getItem("user_name") == null) {
       alert("Unauthorized!");
       this.logout();
     }
