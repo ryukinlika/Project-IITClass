@@ -8,12 +8,19 @@
         <p class="neglectmasthead" class="lead">Express Yourself</p>
         <div style="padding-top: 30px;">
           <div class="searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search" />
-            <button class="searchButton" routerLink="#">
+            <input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="searchText" />
+            <div class="searchButton" routerLink="#">
               <i class="material-icons">
                 <img src="./.././../assets/images/magnifier.png" style="width: 25px;" />
               </i>
-            </button>
+            </div>
+            <div class="list-group" *ngFor="let ukm of ukm?.result.ukm | search:searchText"
+              routerLink="/ukmdetail/{{ukm.kode}}">
+              <div class="dropdown-item">
+                {{ukm?.nama}}
+                <img src="{{ ukm?.foto }}" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -29,12 +36,7 @@
         <span style="color: white">Athletics</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm" class="hide-overflow">
-        <div
-          *ngIf="ukms.kode.includes('OL')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="ukms.kode.includes('OL')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
 
           <div class="card flex-row flex-wrap p-2">
             <div class="card-header border-0 w-25 my-auto" style="background: white;">
@@ -45,17 +47,9 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a
-                routerLink="/login"
-                class="btn btn-primary"
-                (click)="addFave(ukms)"
-                id="{{ ukms?.kode }}"
-                >Add to Favourite</a
-              >
-              <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="/login" class="btn btn-primary" (click)="addFave(ukms)" id="{{ ukms?.kode }}">Add to
+                Favourite</a>
+              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
 
                 SEE MORE DETAILS
               </a>
@@ -97,12 +91,7 @@
         <span style="color: white">Science & Social</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm">
-        <div
-          *ngIf="ukms.kode.includes('SS')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="ukms.kode.includes('SS')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
 
           <div class="card flex-row flex-wrap p-2">
             <div class="card-header border-0 w-25 my-auto" style="background: white;">

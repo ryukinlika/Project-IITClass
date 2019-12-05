@@ -8,7 +8,7 @@ import {
 } from "@angular/animations";
 import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
-import { stringify } from "querystring";
+import { SearchPipe } from 'src/app/_shared/services/search.pipe'
 
 @Component({
   selector: "app-home",
@@ -54,5 +54,9 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("favourited", JSON.stringify(data));
     console.log(JSON.parse(localStorage.getItem("favourited")));
     return;
+  }
+
+  onKeydown($event: any) {
+
   }
 }

@@ -18,6 +18,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { AddUkmComponent } from "./add-ukm/add-ukm.component";
 import { UpdateUkmComponent } from "./update-ukm/update-ukm.component";
 import { FavouriteComponent } from "./favourite/favourite.component";
+import { SearchPipe } from './../../src/app/_shared/services/search.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FavouriteComponent } from "./favourite/favourite.component";
     ProfileComponent,
     AddUkmComponent,
     UpdateUkmComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -45,4 +47,4 @@ import { FavouriteComponent } from "./favourite/favourite.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
