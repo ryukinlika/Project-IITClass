@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UKM } from '../_shared/models/ukm';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
+import { Time } from '@angular/common';
 
 
 @Component({
@@ -25,10 +24,16 @@ export class UpdateUkmComponent implements OnInit {
   public createdAt: string;
   public uAt: Date;
   public updatedAt: string;
-  private data: any;
   private kode: string;
 
+  private data: any;
   private namaukm: string;
+  private anggotaukm: string;
+  private jammulaiukm: string;
+  private jamselesaiukm: string;
+  private deskripsiukm: string;
+
+
   private response: any;
   private token = localStorage.getItem("token");
 
@@ -64,13 +69,22 @@ export class UpdateUkmComponent implements OnInit {
   }
 
   saveChange() {
-    this.data = JSON.parse(`{"nama": "${this.namaukm}",
-    "token": "${this.token}"}`);
+    this.data = JSON.parse(`{
+      "nama": "${this.namaukm}",
+      "anggota": "${this.anggotaukm}",
+      "jam_mulai": "${this.jammulaiukm}",
+      "jam_selesai": "${this.jamselesaiukm}",
+      "deskripsi": "${this.deskripsiukm}",
+      "token": "${this.token}"
+    }`);
     this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
       result => {
         console.log(result);
         this.ukm.result.nama = this.namaukm;
-
+        this.ukm.result.anggota = this.anggotaukm;
+        this.ukm.result.jam_mulai = this.jammulaiukm;
+        this.ukm.result.jam_selesai = this.jamselesaiukm;
+        this.ukm.result.deskripsi = this.deskripsiukm;
         this.ngOnInit();
         setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 2000);
 
