@@ -28,9 +28,9 @@ export class UpdateUkmComponent implements OnInit {
 
   private data: any;
   private namaukm: string;
-  private anggotaukm: string;
-  private jammulaiukm: string;
-  private jamselesaiukm: string;
+  private anggotaukm: number;
+  private jammulaiukm: Time;
+  private jamselesaiukm: Time;
   private deskripsiukm: string;
 
 
@@ -52,6 +52,7 @@ export class UpdateUkmComponent implements OnInit {
         result => {
           this.ukm = result;
           this.namaukm = this.ukm.result.nama;
+          localStorage.setItem("localukm", JSON.stringify(this.ukm));
         },
         error => { console.log(error) },
       )
@@ -69,6 +70,24 @@ export class UpdateUkmComponent implements OnInit {
   }
 
   saveChange() {
+    this.ukm = JSON.parse(localStorage.getItem("localukm"));
+
+    if (this.namaukm == undefined) {
+      this.namaukm = this.ukm.result.nama;
+    }
+    if (this.anggotaukm == undefined) {
+      this.anggotaukm = this.ukm.result.anggota;
+    }
+    if (this.jammulaiukm == undefined) {
+      this.jammulaiukm = this.ukm.result.jam_mulai;
+    }
+    if (this.jamselesaiukm == undefined) {
+      this.jamselesaiukm = this.ukm.result.jam_selesai;
+    }
+    if (this.deskripsiukm == undefined) {
+      this.deskripsiukm = this.ukm.result.deskripsi;
+    }
+
     this.data = JSON.parse(`{
       "nama": "${this.namaukm}",
       "anggota": "${this.anggotaukm}",
@@ -77,6 +96,7 @@ export class UpdateUkmComponent implements OnInit {
       "deskripsi": "${this.deskripsiukm}",
       "token": "${this.token}"
     }`);
+
     this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
       result => {
         console.log(result);

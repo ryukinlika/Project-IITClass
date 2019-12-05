@@ -12,7 +12,7 @@
                       <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}" [(ngModel)]="namaukm">
                     </div>
                     <div class="col-md-6">
-                      <input type="text" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}"
+                      <input type="number" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}"
                         [(ngModel)]="anggotaukm">
                     </div>
                     <div class=" col-md-6">
@@ -23,8 +23,7 @@
                         [(ngModel)]="jamselesaiukm">
                     </div>
                     <div class=" col-md-12">
-                      <textarea placeholder="Deskripsi" value="{{ukm.result.deskripsi}}"
-                        [(ngModel)]="deskripsiukm"></textarea>
+                      <input type="text" placeholder="Deskripsi" [(ngModel)]="deskripsiukm">
                     </div>
                   </div>
                 </div>

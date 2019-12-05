@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { type } from 'os';
+import { type } from 'aos';
 
 @Pipe({
   name: 'search'
