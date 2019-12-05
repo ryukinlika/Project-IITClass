@@ -9,19 +9,22 @@
                 <div class="contact-form">
                   <div class="row">
                     <div class="col-md-6">
-                      <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}">
+                      <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}" [(ngModel)]="namaukm">
                     </div>
                     <div class="col-md-6">
-                      <input type="text" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}">
+                      <input type="text" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}"
+                        [(ngModel)]="anggotaukm">
                     </div>
                     <div class=" col-md-6">
-                      <input type="time" value="{{ukm.result.jam_mulai}}">
+                      <input type="time" value="{{ukm.result.jam_mulai}}" [(ngModel)]="jammulaiukm">
                     </div>
                     <div class=" col-md-6">
-                      <input type="time" placeholder="Jam Selesai" value="{{ukm.result.jam_selesai}}">
+                      <input type="time" placeholder="Jam Selesai" value="{{ukm.result.jam_selesai}}"
+                        [(ngModel)]="jamselesaiukm">
                     </div>
                     <div class=" col-md-12">
-                      <textarea placeholder="Deskripsi"></textarea>
+                      <textarea placeholder="Deskripsi" value="{{ukm.result.deskripsi}}"
+                        [(ngModel)]="deskripsiukm"></textarea>
                     </div>
                   </div>
                 </div>
