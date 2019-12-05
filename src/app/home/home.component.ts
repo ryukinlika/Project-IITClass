@@ -29,17 +29,18 @@ import { stringify } from "querystring";
 export class HomeComponent implements OnInit {
   private ukm: UKM = null;
   private expires_at = "";
-  Arr = Array;
+  Arr: any;
   num: number = 5;
 
-  constructor(private pelayanApi: PelayananAPIService) {}
+  constructor(private pelayanApi: PelayananAPIService) { }
 
   ngOnInit() {
     // console.log(localStorage.getItem(this.expires_at));
     this.pelayanApi.getAllUKM().subscribe(
       result => {
         this.ukm = result;
-        // console.log(this.ukm);
+        this.Arr = this.ukm.result.ukm;
+        localStorage.setItem("array", JSON.stringify(this.Arr))
       },
       error => {
         console.log(error);
