@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authAPI.checkAuth(this.user);
     this.edit = false;
+    this.password = ''
 
     // console.log(this.fullname);
     // console.log(this.address);
@@ -42,20 +43,17 @@ export class ProfileComponent implements OnInit {
   }
 
   submitChange() {
-    if (this.password.length > 0) {
+    if (this.password.length < 1) {
+      alert("Password belum terisi!")
+      return;
+    }
+    else {
       this.SHApassword = CryptoJS.SHA512(this.password).toString();
       this.data = JSON.parse(`{"nama_lengkap": "${this.fullname}", 
                             "foto": "${this.photo}", 
                             "alamat": "${this.address}", 
                             "tanggal_lahir": "${this.bdate}", 
                             "password": "${this.SHApassword}",
-                            "token": "${this.token}"}`);
-    }
-    else {
-      this.data = JSON.parse(`{"nama_lengkap": "${this.fullname}", 
-                            "foto": "${this.photo}", 
-                            "alamat": "${this.address}", 
-                            "tanggal_lahir": "${this.bdate}", 
                             "token": "${this.token}"}`);
     }
     console.log(this.data);
@@ -71,6 +69,7 @@ export class ProfileComponent implements OnInit {
         this.user.result.user.tanggal_lahir = this.bdate;
         this.user.result.user.token = this.token
         localStorage.setItem("user", JSON.stringify(this.user));
+        alert("User berhasil di Update!")
 
         this.ngOnInit();
       },

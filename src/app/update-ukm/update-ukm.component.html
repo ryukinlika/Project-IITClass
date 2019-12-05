@@ -1,45 +1,42 @@
 <section class="hero-section spad">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-10 offset-xl-1">
         <div class="row">
-            <div class="col-xl-10 offset-xl-1">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero-info">
-                            <ul>
-                                <div class="contact-form">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" placeholder="Jumlah Anggota"
-                                                value="{{ukm.result.anggota}}">
-                                        </div>
-                                        <div class=" col-md-6">
-                                            <input type="time" value="{{ukm.result.jam_mulai}}">
-                                        </div>
-                                        <div class=" col-md-6">
-                                            <input type="time" placeholder="Jam Selesai"
-                                                value="{{ukm.result.jam_selesai}}">
-                                        </div>
-                                        <div class=" col-md-12">
-                                            <textarea placeholder="Deskripsi"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                            <br>
-                        </div>
-                        <button class="btn btn-secondary" (click)="saveChange()">Save
-                            Changes</button>
+          <div class="col-lg-6">
+            <div class="hero-info">
+              <ul>
+                <div class="contact-form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}" [(ngModel)]="namaukm">
                     </div>
-                    <div class="col-lg-6">
-                        <figure class="hero-image">
-                            <img [src]="ukm?.result.foto" class="img-responsive foto">
-                        </figure>
+                    <div class="col-md-6">
+                      <input type="text" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}">
                     </div>
+                    <div class=" col-md-6">
+                      <input type="time" value="{{ukm.result.jam_mulai}}">
+                    </div>
+                    <div class=" col-md-6">
+                      <input type="time" placeholder="Jam Selesai" value="{{ukm.result.jam_selesai}}">
+                    </div>
+                    <div class=" col-md-12">
+                      <textarea placeholder="Deskripsi"></textarea>
+                    </div>
+                  </div>
                 </div>
+              </ul>
+              <br>
             </div>
+            <button class="btn btn-secondary" (click)="saveChange()">Save Changes</button>
+          </div>
+          <div class="col-lg-6">
+            <figure class="hero-image">
+              <img [src]="ukm?.result.foto" class="img-responsive foto">
+            </figure>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>

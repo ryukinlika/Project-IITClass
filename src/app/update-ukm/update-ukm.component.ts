@@ -72,9 +72,11 @@ export class UpdateUkmComponent implements OnInit {
         this.ukm.result.nama = this.namaukm;
 
         this.ngOnInit();
+        setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 1550);
 
       }
     );
-    this.router.navigateByUrl("/ukmdetail/" + this.kode);
   }
 }
+
+
