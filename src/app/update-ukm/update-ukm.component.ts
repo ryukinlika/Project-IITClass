@@ -70,10 +70,10 @@ export class UpdateUkmComponent implements OnInit {
 
   saveChange() {
     this.ukm = JSON.parse(localStorage.getItem("localukm"));
-
     if (this.namaukm == undefined) {
       this.namaukm = this.ukm.result.nama;
     }
+    console.log(this.anggotaukm)
     if (this.anggotaukm == undefined) {
       this.anggotaukm = this.ukm.result.anggota;
     }
@@ -86,6 +86,7 @@ export class UpdateUkmComponent implements OnInit {
     if (this.deskripsiukm == undefined) {
       this.deskripsiukm = this.ukm.result.deskripsi;
     }
+    console.log(this.anggotaukm)
 
     this.data = JSON.parse(`{
       "nama": "${this.namaukm}",
