@@ -13,6 +13,7 @@ export class SearchPipe implements PipeTransform {
     value = value.toLowerCase();
 
     return ukm.filter(function (item: any) {
+      console.log((item.nama).toLowerCase())
       return JSON.stringify(item.nama).toLowerCase().includes(value);
     });
   }
