@@ -9,20 +9,19 @@
         <div style="padding-top: 30px;">
           <div class="searchBox">
             <input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="searchText" />
-            <div class="searchButton" routerLink="#">
+            <div class="searchButton">
               <i class="material-icons">
                 <img src="./.././../assets/images/magnifier.png" style="width: 25px;" />
               </i>
-            </div>
-            <div class="list-group" *ngFor="let ukm of ukm?.result.ukm | search:searchText"
-              routerLink="/ukmdetail/{{ukm.kode}}">
-              <div class="dropdown-item">
-                {{ukm?.nama}}
-                <img src="{{ ukm?.foto }}" />
-              </div>
-            </div>
+            </div><br>
           </div>
         </div>
+        <!-- <div *ngFor="let ukm of ukm?.result.ukm | search:searchText" routerLink="/ukmdetail/{{ukm.kode}}">
+          <div class="gurido card">
+            {{ukm?.nama}}
+          </div>
+          <img src="{{ ukm?.foto }}" />
+        </div> -->
       </div>
     </div>
   </div>
@@ -35,7 +34,7 @@
         <img src="./.././../assets/images/athletics.png" class="tab-icon" />
         <span style="color: white">Athletics</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm" class="hide-overflow">
+      <div *ngFor="let ukms of ukm?.result.ukm | search:searchText" class="hide-overflow">
         <div *ngIf="ukms.kode.includes('OL')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
 
           <div class="card flex-row flex-wrap p-2">
@@ -64,7 +63,7 @@
         <img src="./.././../assets/images/art.png" class="tab-icon" />
         <span style="color: white">Art & Culture</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm">
+      <div *ngFor="let ukms of ukm?.result.ukm | search:searchText">
         <div *ngIf="ukms.kode.includes('SB')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
             <div class="card-header border-0 w-25 my-auto" style="background: white;">
@@ -90,7 +89,7 @@
         <img src="./.././../assets/images/sciencesocial.png" class="tab-icon" />
         <span style="color: white">Science & Social</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm">
+      <div *ngFor="let ukms of ukm?.result.ukm | search:searchText">
         <div *ngIf="ukms.kode.includes('SS')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
 
           <div class="card flex-row flex-wrap p-2">
