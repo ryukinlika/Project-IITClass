@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
   private expires_at = "";
   Arr: any;
   num: number = 5;
+  i: number = 0;
+  temp: any[] = [];
 
   constructor(private pelayanApi: PelayananAPIService) { }
 
@@ -51,7 +53,9 @@ export class HomeComponent implements OnInit {
 
   addFave(data: any) {
     console.log(data);
-    localStorage.setItem("favourited", JSON.stringify(data));
+    this.temp.push(data);
+    console.log(this.temp[1]);
+    localStorage.setItem("favourited", JSON.stringify(this.temp));
     console.log(JSON.parse(localStorage.getItem("favourited")));
     return;
   }

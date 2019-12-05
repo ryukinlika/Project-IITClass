@@ -46,9 +46,19 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a routerLink="/login" class="btn btn-primary" (click)="addFave(ukms)" id="{{ ukms?.kode }}">Add to
-                Favourite</a>
-              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+
+              <button
+                class="btn btn-primary"
+                (click)="addFave(ukms)"
+                id="{{ ukms?.kode }}"
+              >
+                Add to Favourite
+              </button>
+
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
 
                 SEE MORE DETAILS
               </a>
@@ -74,8 +84,19 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a routerLink="login" class="btn btn-primary">BUTTON</a>
-              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+
+              <button
+                class="btn btn-primary"
+                (click)="addFave(ukms)"
+                id="{{ ukms?.kode }}"
+              >
+                Add to Favourite
+              </button>
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
+
                 SEE MORE DETAILS
               </a>
             </div>
@@ -101,8 +122,19 @@
               <p class="card-text ">
                 {{ ukms?.deskripsi }}
               </p>
-              <a routerLink="login" class="btn btn-primary">BUTTON</a>
-              <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+
+              <button
+                class="btn btn-primary"
+                (click)="addFave(ukms)"
+                id="{{ ukms?.kode }}"
+              >
+                Add to Favourite
+              </button>
+              <a
+                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                class="btn btn-primary m-1"
+              >
+
                 SEE MORE DETAILS
               </a>
             </div>
