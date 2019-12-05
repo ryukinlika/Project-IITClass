@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-8 offset-md-2 mt-5">
       <div class="card">
-        <img [src]="user.result.user.foto" class="card-img-top rounded-sm picture-size">
+        <img *ngIf="!edit" [src]="user.result.user.foto" class="card-img-top rounded-sm">
+        <img *ngIf="edit" [src]="photo" class="card-img-top rounded-sm">
+
         <div *ngIf="edit" class="input-group m-0">
           <div class="input-group-prepend">
             <div class="input-group-text">Photo Url: </div>
