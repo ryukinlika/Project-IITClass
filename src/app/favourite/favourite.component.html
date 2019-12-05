@@ -24,15 +24,11 @@
               <p class="card-text ">
                 {{ favos?.deskripsi }}
               </p>
-              <button
-                class="btn btn-primary"
-                (click)="addFave(favos)"
-                id="{{ favos?.kode }}"
-              >
-                Add to Favourite
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
               </button>
               <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                routerLink="../ukmdetail/{{ favos?.kode }}"
                 class="btn btn-primary m-1"
               >
                 SEE MORE DETAILS
@@ -67,15 +63,50 @@
               <p class="card-text ">
                 {{ favos?.deskripsi }}
               </p>
-              <button
-                class="btn btn-primary"
-                (click)="addFave(favos)"
-                id="{{ favos?.kode }}"
-              >
-                Add to Favourite
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
               </button>
               <a
-                routerLink="../ukmdetail/{{ ukms?.kode }}"
+                routerLink="../ukmdetail/{{ favos?.kode }}"
+                class="btn btn-primary m-1"
+              >
+                SEE MORE DETAILS
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img src="./.././../assets/images/sciencesocial.png" class="tab-icon" />
+        <span style="color: white">Science & Social</span>
+      </ng-template>
+      <div *ngFor="let favos of favo">
+        <div
+          *ngIf="favos.kode.includes('SS')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
+          <div class="card flex-row flex-wrap p-2">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
+              <img src="{{ favos?.foto }}" />
+            </div>
+            <div class="card-block w-75">
+              <h4 class="card-title">{{ favos?.nama }}</h4>
+              <p class="card-text ">
+                {{ favos?.deskripsi }}
+              </p>
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
+              </button>
+              <a
+                routerLink="../ukmdetail/{{ favos?.kode }}"
                 class="btn btn-primary m-1"
               >
                 SEE MORE DETAILS

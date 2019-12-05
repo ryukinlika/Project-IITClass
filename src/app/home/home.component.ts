@@ -53,10 +53,9 @@ export class HomeComponent implements OnInit {
   addFave(data: any) {
     console.log(data);
     this.temp.push(data);
-    console.log(this.temp);
+    console.log(this.temp[1]);
     localStorage.setItem("favourited", JSON.stringify(this.temp));
     console.log(JSON.parse(localStorage.getItem("favourited")));
-
     return;
   }
 }
