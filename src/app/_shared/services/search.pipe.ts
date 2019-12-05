@@ -1,18 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { type } from 'os';
 
 @Pipe({
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(ukm: any, value?: any): any {
 
-    if (args == '') return;
+    if (typeof (value) == "undefined") return ukm;
 
-    args = args.toLowerCase();
+    value = value.toLowerCase();
 
-    return value.filter(function (item: any) {
-      return JSON.stringify(item.nama).toLowerCase().includes(args);
+    return ukm.filter(function (item: any) {
+      return JSON.stringify(item.nama).toLowerCase().includes(value);
     });
   }
 
