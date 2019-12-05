@@ -51,7 +51,6 @@ export class UpdateUkmComponent implements OnInit {
       this.pelayanAPI.getUKMbykode(param.kode).subscribe(
         result => {
           this.ukm = result;
-          this.namaukm = this.ukm.result.nama;
           localStorage.setItem("localukm", JSON.stringify(this.ukm));
         },
         error => { console.log(error) },
@@ -100,11 +99,6 @@ export class UpdateUkmComponent implements OnInit {
     this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
       result => {
         console.log(result);
-        this.ukm.result.nama = this.namaukm;
-        this.ukm.result.anggota = this.anggotaukm;
-        this.ukm.result.jam_mulai = this.jammulaiukm;
-        this.ukm.result.jam_selesai = this.jamselesaiukm;
-        this.ukm.result.deskripsi = this.deskripsiukm;
         this.ngOnInit();
         setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 2000);
 
