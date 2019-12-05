@@ -14,6 +14,8 @@ export class AuthAPIService {
   private exp: string;
   private usernameSource: BehaviorSubject<any>;
   public username: Observable<any>;
+  public foto: Observable<any>;
+
 
   constructor(private http: HttpClient, private router: Router) {
     if (localStorage.getItem("expires_at") == null)
@@ -58,6 +60,7 @@ export class AuthAPIService {
     console.log(localStorage.getItem("expires_at"));
 
     localStorage.setItem("user_name", data.result.user.user_name);
+
     //console.log(data.result.user.user_name);
     localStorage.setItem("user", JSON.stringify(data));
     //console.log(data);

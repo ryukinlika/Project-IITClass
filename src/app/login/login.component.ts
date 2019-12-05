@@ -19,7 +19,7 @@ export class LoginFormComponent implements OnInit {
     private form: FormBuilder,
     public APIAuth: AuthAPIService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.form.group({
@@ -44,6 +44,7 @@ export class LoginFormComponent implements OnInit {
     this.APIAuth.login(this.data.value).subscribe(
       result => {
         this.data = result;
+        localStorage.setItem("profile", JSON.stringify(this.data));
         console.log(this.data);
         this.APIAuth.verify(this.data).subscribe(result => {
           this.data = result;

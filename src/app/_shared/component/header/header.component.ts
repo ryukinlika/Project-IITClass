@@ -1,5 +1,7 @@
+import { PelayananAPIService } from './../../services/pelayanan-api.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthAPIService } from '../../services/auth-api.service';
+import { Url } from 'url';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,9 @@ export class HeaderComponent implements OnInit {
   loggedIn = false;
   username: string = "";
 
-
   constructor(
-    private authAPI: AuthAPIService
+    private authAPI: AuthAPIService,
+    private pelayanAPI: PelayananAPIService
   ) { }
 
   ngOnInit() {
@@ -29,9 +31,7 @@ export class HeaderComponent implements OnInit {
         }
       }
     )
-
   }
-
 
   logOut() {
     this.loggedIn = false;

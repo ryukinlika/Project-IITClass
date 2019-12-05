@@ -4,6 +4,7 @@
       <div class="card">
         <img *ngIf="!edit" [src]="user.result.user.foto" class="card-img-top rounded-sm">
         <img *ngIf="edit" [src]="photo" class="card-img-top rounded-sm">
+
         <div *ngIf="edit" class="input-group m-0">
           <div class="input-group-prepend">
             <div class="input-group-text">Photo Url: </div>
