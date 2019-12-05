@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3 mt-5">
+    <div class="col-md-8 offset-md-2 mt-5">
       <div class="card">
-        <img [src]="user.result.user.foto" class="card-img-top rounded-sm">
+        <img *ngIf="!edit" [src]="user.result.user.foto" class="card-img-top rounded-sm">
+        <img *ngIf="edit" [src]="photo" class="card-img-top rounded-sm">
+        <div *ngIf="edit" class="input-group m-0">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Photo Url: </div>
+          </div>
+          <input type="text" class="form-control" placeholder="url" [(ngModel)]="photo">
+        </div>
         <div class="card-header">
           <h3 class="card-title text-center m-0"> {{user.result.user.user_name}} <button type="button"
-              class="btn btn-info btn-sm">
+              class="btn btn-info btn-sm" (click)="edit = !edit">
               <img src="./.././../assets/images/edit.png" style="height: 15px; width: 15px;" />
               Edit
             </button></h3>
@@ -17,7 +24,8 @@
               Full Name
             </div>
             <div class="col-md-8 m-0 border-left border-secondary">
-              {{user.result.user.nama_lengkap}}
+              <p *ngIf="!edit">{{user.result.user.nama_lengkap}} </p>
+              <input *ngIf="edit" type="text" [(ngModel)]="fullname" class="form-control">
             </div>
           </div>
           <div class="row p-0 m-0 rounded">
@@ -25,7 +33,8 @@
               Email
             </div>
             <div class="col-md-8 m-0 border-left border-secondary">
-              {{user.result.user.email}}
+              <p *ngIf="!edit">{{user.result.user.email}}</p>
+              <input *ngIf="edit" type="text" [(ngModel)]="user.result.user.email" class="form-control " readonly>
             </div>
           </div>
           <div class="row p-0 m-0 rounded">
@@ -33,7 +42,8 @@
               Birth Date
             </div>
             <div class="col-md-8 m-0 border-left border-secondary">
-              {{user.result.user.tanggal_lahir}}
+              <p *ngIf="!edit">{{user.result.user.tanggal_lahir}}</p>
+              <input *ngIf="edit" type="date" [(ngModel)]="bdate" class="form-control">
             </div>
           </div>
           <div class="row p-0 m-0 rounded">
@@ -41,7 +51,8 @@
               Phone Number
             </div>
             <div class="col-md-8 m-0 border-left border-secondary">
-              {{user.result.user.telepon}}
+              <p *ngIf="!edit">{{user.result.user.telepon}}</p>
+              <input *ngIf="edit" type="text" [(ngModel)]="user.result.user.telepon" class="form-control " readonly>
             </div>
           </div>
           <div class="row p-0 m-0 rounded">
@@ -49,10 +60,19 @@
               Address
             </div>
             <div class="col-md-8 m-0 border-left border-secondary">
-              {{user.result.user.alamat}}
+              <p *ngIf="!edit">{{user.result.user.alamat}}</p>
+              <input *ngIf="edit" type="text" [(ngModel)]="address" class="form-control">
             </div>
           </div>
-
+          <div *ngIf="edit">
+            <div class="input-group mt-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Change Password: </div>
+              </div>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+              <button class="btn btn-primary btn-sm" (click)="submitChange()">Update</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

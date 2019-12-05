@@ -35,6 +35,7 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
+
     this.data = this.loginForm;
     console.log(this.data.value);
     this.data.value.password = CryptoJS.SHA512(

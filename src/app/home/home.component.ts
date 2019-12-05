@@ -8,7 +8,7 @@ import {
 } from "@angular/animations";
 import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
-import { stringify } from "querystring";
+import { SearchPipe } from 'src/app/_shared/services/search.pipe'
 
 @Component({
   selector: "app-home",
@@ -29,19 +29,20 @@ import { stringify } from "querystring";
 export class HomeComponent implements OnInit {
   private ukm: UKM = null;
   private expires_at = "";
-  Arr = Array;
+  Arr: any;
   num: number = 5;
   i: number = 0;
   temp: any[] = [];
 
-  constructor(private pelayanApi: PelayananAPIService) {}
+  constructor(private pelayanApi: PelayananAPIService) { }
 
   ngOnInit() {
     // console.log(localStorage.getItem(this.expires_at));
     this.pelayanApi.getAllUKM().subscribe(
       result => {
         this.ukm = result;
-        // console.log(this.ukm);
+        this.Arr = this.ukm.result.ukm;
+        localStorage.setItem("array", JSON.stringify(this.Arr))
       },
       error => {
         console.log(error);
@@ -57,5 +58,9 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("favourited", JSON.stringify(this.temp));
     console.log(JSON.parse(localStorage.getItem("favourited")));
     return;
+  }
+
+  onKeydown($event: any) {
+
   }
 }
