@@ -14,19 +14,25 @@ export class AuthAPIService {
   private exp: string;
   private usernameSource: BehaviorSubject<any>;
   public username: Observable<any>;
+  private fotoSource: BehaviorSubject<any>;
   public foto: Observable<any>;
 
 
   constructor(private http: HttpClient, private router: Router) {
-    if (localStorage.getItem("expires_at") == null)
+    if (localStorage.getItem("expires_at") == null) {
       this.usernameSource = new BehaviorSubject<any>(null);
-    else if (new Date(localStorage.getItem("expires_at")) < new Date())
+      this.fotoSource = new BehaviorSubject<any>(null);
+    }
+    else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
       this.usernameSource = new BehaviorSubject<any>(null);
-    else
-      this.usernameSource = new BehaviorSubject<any>(
-        localStorage.getItem("user_name")
-      );
+      this.fotoSource = new BehaviorSubject<any>(null);
+    }
+    else {
+      this.usernameSource = new BehaviorSubject<any>(localStorage.getItem("user_name"));
+      this.fotoSource = new BehaviorSubject<any>(localStorage.getItem("avatar_profile"));
+    }
     this.username = this.usernameSource.asObservable();
+    this.foto = this.fotoSource.asObservable();
   }
 
   register(data: any): Observable<serverResponse> {
@@ -60,6 +66,7 @@ export class AuthAPIService {
     console.log(localStorage.getItem("expires_at"));
 
     localStorage.setItem("user_name", data.result.user.user_name);
+    localStorage.setItem("avatar_profile", data.result.user.foto);
 
     //console.log(data.result.user.user_name);
     localStorage.setItem("user", JSON.stringify(data));
@@ -69,6 +76,7 @@ export class AuthAPIService {
 
   userchange() {
     this.usernameSource.next(localStorage.getItem("user_name"));
+    this.fotoSource.next(localStorage.getItem("avatar_profile"));
   }
 
   logout() {
@@ -78,6 +86,7 @@ export class AuthAPIService {
     localStorage.removeItem("user");
 
     this.usernameSource.next(null);
+    this.fotoSource.next(null);
     this.router.navigateByUrl("/home");
   }
 

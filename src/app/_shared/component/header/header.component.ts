@@ -21,8 +21,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    this.foto = this.user.result.user.foto;
-
     this.authAPI.username.subscribe(
       result => {
         if (result == null) {
@@ -35,12 +33,24 @@ export class HeaderComponent implements OnInit {
         }
       }
     )
+
+    this.authAPI.foto.subscribe(
+      result => {
+        if (result == null) {
+          this.loggedIn = false;
+          this.foto = "";
+        }
+        else {
+          this.loggedIn = true;
+          this.foto = result;
+        }
+      }
+    )
   }
 
   logOut() {
     this.loggedIn = false;
     this.authAPI.logout();
-    this.foto = "https://bodiez.com/wp-content/uploads/2015/09/medium-default-avatar.png";
   }
 
 }
