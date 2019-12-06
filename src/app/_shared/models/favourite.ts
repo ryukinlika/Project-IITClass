@@ -1,3 +1,0 @@
-export interface scope {
-  records: [];
-}
