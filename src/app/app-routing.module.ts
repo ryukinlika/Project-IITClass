@@ -46,10 +46,11 @@ const routes: Routes = [
     path: "user",
     component: ProfileComponent
   }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
