@@ -9,9 +9,10 @@ import { Url } from 'url';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  private user?: any = JSON.parse(localStorage.getItem("user"));
   loggedIn = false;
   username: string = "";
+  foto: string = "";
 
   constructor(
     private authAPI: AuthAPIService,
@@ -19,6 +20,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.foto = this.user.result.user.foto;
+
     this.authAPI.username.subscribe(
       result => {
         if (result == null) {
@@ -36,6 +40,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     this.loggedIn = false;
     this.authAPI.logout();
+    this.foto = "https://bodiez.com/wp-content/uploads/2015/09/medium-default-avatar.png";
   }
 
 }

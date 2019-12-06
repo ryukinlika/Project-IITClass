@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit {
     this.edit = false;
     this.password = ''
 
+
     // console.log(this.fullname);
     // console.log(this.address);
     // console.log(this.bdate);

@@ -32,6 +32,7 @@ export class UpdateUkmComponent implements OnInit {
   private jammulaiukm: Time;
   private jamselesaiukm: Time;
   private deskripsiukm: string;
+  private fotoukm: string;
 
 
   private response: any;
@@ -86,6 +87,9 @@ export class UpdateUkmComponent implements OnInit {
     if (this.deskripsiukm == undefined) {
       this.deskripsiukm = this.ukm.result.deskripsi;
     }
+    if (this.fotoukm == undefined) {
+      this.fotoukm = this.ukm.result.foto;
+    }
     console.log(this.anggotaukm)
 
     this.data = JSON.parse(`{
@@ -94,6 +98,7 @@ export class UpdateUkmComponent implements OnInit {
       "jam_mulai": "${this.jammulaiukm}",
       "jam_selesai": "${this.jamselesaiukm}",
       "deskripsi": "${this.deskripsiukm}",
+      "foto": "${this.fotoukm}",
       "token": "${this.token}"
     }`);
 

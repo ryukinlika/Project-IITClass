@@ -61,7 +61,6 @@ export class LoginFormComponent implements OnInit {
 
   successLogin(data: any) {
     localStorage.setItem("token", data.token);
-    // console.log(localStorage.getItem("token"));
     alert("Login successful!");
     this.router.navigateByUrl("/home");
   }
