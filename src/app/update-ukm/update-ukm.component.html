@@ -30,8 +30,7 @@
               </ul>
               <br>
             </div>
-            <button class="btn btn-secondary" (click)="saveChange()">Save
-              Changes</button>
+            <button class="btn btn-secondary" (click)="saveChange()">Save Changes</button>
           </div>
           <div class="col-lg-6">
             <figure class="hero-image">
@@ -39,7 +38,9 @@
                 <div *ngIf="!editImage">
                   <img [src]="ukm?.result.foto" class="img-responsive foto image">
                   <div class="middle">
-                    <button class="text btn" (click)="editImage = !editImage">Change Image</button>
+                    <a (click)="editImage = !editImage"><img src="./../../assets/images/cam_button.png"
+                        class="cam-button"></a>
+                    <h4 (click)="editImage = !editImage">Change Picture</h4>
                   </div>
                 </div>
               </div>
@@ -56,4 +57,6 @@
       </div>
     </div>
   </div>
+  <div *ngIf="loading" class="loader"></div>
+
 </section>

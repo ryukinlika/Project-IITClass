@@ -51,7 +51,6 @@ body {
 }
 
 .searchBox:hover>.searchButton {
-  background: white;
   color: #2f3640;
 }
 
@@ -61,7 +60,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: white;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;

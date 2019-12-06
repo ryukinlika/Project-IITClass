@@ -17,7 +17,7 @@ import { Time } from '@angular/common';
 export class UpdateUkmComponent implements OnInit {
 
   private user?: any = JSON.parse(localStorage.getItem("user"));
-  edit = false;
+  loading = false;
 
   public ukm: any;
   public cAt: Date;
@@ -110,6 +110,8 @@ export class UpdateUkmComponent implements OnInit {
 
       }
     );
+    this.loading = true;
+
   }
 }
 
