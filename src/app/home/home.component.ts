@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private pelayanApi: PelayananAPIService,
     private authAPI: AuthAPIService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // console.log(localStorage.getItem(this.expires_at));
@@ -90,5 +90,5 @@ export class HomeComponent implements OnInit {
   }
 
   //buat apa ni VVVVV
-  onKeydown($event: any) {}
+  onKeydown($event: any) { }
 }
