@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { scope } from "./../_shared/models/favourite";
 
 @Component({
   selector: "app-favourite",
