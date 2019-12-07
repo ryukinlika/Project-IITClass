@@ -18,6 +18,10 @@ export class AddUkmComponent implements OnInit {
   image: string = './.././../assets/images/placeholder.png';
   loading = false;
   type: string = 'OL';
+  lul: any;
+  pad = "000";
+  temp: any;
+
 
   constructor(
     private fb: FormBuilder,
@@ -45,6 +49,15 @@ export class AddUkmComponent implements OnInit {
   }
 
   addUkm() {
+    if (this.type == "SS") {
+      this.temp = (this.pad + localStorage.getItem("SS")).slice(-this.pad.length)
+    }
+    else if (this.type == "SB") {
+      this.temp = (this.pad + localStorage.getItem("SB")).slice(-this.pad.length)
+    }
+    else if (this.type == "OL") {
+      this.temp = (this.pad + localStorage.getItem("OL")).slice(-this.pad.length)
+    }
     this.submitted = true;
     this.loading = true;
     // console.log('ree');
@@ -55,7 +68,7 @@ export class AddUkmComponent implements OnInit {
       return;
     }
     this.data = this.addForm.value;
-    this.data.kode = this.type + this.data.kode;
+    this.data.kode = this.type + this.temp;
     this.data.token = this.token;
 
     this.pelayanAPI.newUKM(this.data).subscribe(
