@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   addFave(data: any) {
-    if (this.isLoggedIn == false) {
+    if (!this.isLoggedIn) {
       alert("Silahkan login terlebih dahulu");
       return;
     }
