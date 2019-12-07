@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   i: number = 0;
   temp: any[] = [];
   isLoggedIn = false;
-  favo: any;
+  favo?: any[] = [];
   index: any;
 
   constructor(
@@ -71,8 +71,8 @@ export class HomeComponent implements OnInit {
       alert("Silahkan login terlebih dahulu");
       return;
     }
-    this.favo = JSON.parse(localStorage.getItem("favourited"));
-    // console.log(this.favo);
+    if (localStorage.getItem("favourited") != null) this.favo = JSON.parse(localStorage.getItem("favourited"));
+    console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
       this.favo.push(data);
