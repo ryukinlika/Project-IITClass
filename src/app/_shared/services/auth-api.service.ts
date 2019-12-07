@@ -19,11 +19,7 @@ export class AuthAPIService {
 
 
   constructor(private http: HttpClient, private router: Router) {
-    if (localStorage.getItem("expires_at") == null) {
-      this.usernameSource = new BehaviorSubject<any>(null);
-      this.fotoSource = new BehaviorSubject<any>(null);
-    }
-    else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
+    if (localStorage.getItem("expires_at") == null || new Date(localStorage.getItem("expires_at")) < new Date()) {
       this.usernameSource = new BehaviorSubject<any>(null);
       this.fotoSource = new BehaviorSubject<any>(null);
     }

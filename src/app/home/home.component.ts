@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
       result => {
         this.ukm = result;
         this.Arr = this.ukm.result.ukm;
-        localStorage.setItem("array", JSON.stringify(this.Arr));
+        this.sortBy(this.Arr)
       },
       error => {
         console.log(error);
@@ -64,6 +64,18 @@ export class HomeComponent implements OnInit {
         this.isLoggedIn = true;
       }
     });
+  }
+
+  sortBy(field: string) {
+    this.ukm.result.ukm.sort((a: any, b: any) => {
+      if (a.nama < b.nama) {
+        return -1;
+      } else if (a.nama > b.nama) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })
   }
 
   addFave(data: any) {

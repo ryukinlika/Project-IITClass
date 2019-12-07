@@ -2,52 +2,34 @@
   <ul class="navbar-nav mr-auto">
     <li class="nav-item nav-link home-button" routerLink="/home">
       <a>
-        <img
-          src="./.././.././.././../assets/images/logo-02.png"
-          width="80"
-          height="40"
-        />
+        <img src="./.././.././.././../assets/images/logo-02.png" alt="UMN Logo" width="80" height="40" />
       </a>
     </li>
     <li *ngIf="loggedIn" class="nav-item nav-link" routerLink="/favourite">
       Favourites
     </li>
 
-    <li
-      *ngIf="loggedIn"
-      class="nav-item nav-link align-middle"
-      routerLink="/Add-Ukm"
-    >
+    <li *ngIf="loggedIn" class="nav-item nav-link align-middle" routerLink="/Add-Ukm">
       Add New UKM
     </li>
   </ul>
   <ul *ngIf="!loggedIn" class="navbar-nav ml-auto">
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-light"
-        routerLink="/register"
-        style="margin: 5px; float: right;"
-      >
+      <button type="button" class="btn btn-light" routerLink="/register" style="margin: 5px; float: right;">
         Sign Up
       </button>
     </li>
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-outline-light"
-        routerLink="/login"
-        style="margin: 5px; float: right;"
-      >
+      <button type="button" class="btn btn-outline-light" routerLink="/login" style="margin: 5px; float: right;">
         Log In
       </button>
     </li>
   </ul>
   <ul *ngIf="loggedIn" class="navbar-nav ml-auto">
     <li class="nav-item">
-      
+
       <a routerLink="/user">
-        <img src="{{foto}}" id="profileavatar" class="avatar">
+        <img [src]="foto" alt="User Picture" id="profileavatar" class="avatar">
         <button type="button" class="btn btn-light" routerLink="/user" style="margin: 5px; float: right;">
           {{username}}
         </button>
@@ -55,12 +37,7 @@
 
     </li>
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-link"
-        (click)="logOut()"
-        style="margin: 5px; float: right;"
-      >
+      <button type="button" class="btn btn-link" (click)="logOut()" style="margin: 5px; float: right;">
         Logout
       </button>
     </li>
