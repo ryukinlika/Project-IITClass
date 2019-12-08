@@ -69,17 +69,20 @@ export class ProfileComponent implements OnInit {
         this.user.result.user.alamat = this.address;
         this.user.result.user.tanggal_lahir = this.bdate;
         this.user.result.user.token = this.token
+        localStorage.setItem("avatar_profile", this.user.result.user.foto);
         localStorage.setItem("user", JSON.stringify(this.user));
-        alert("User berhasil di Update!")
 
+        alert("User berhasil di Update!")
         this.ngOnInit();
+        this.refresh();
       },
       error => {
         console.log(error);
       }
     );
-
-
+  }
+  refresh(): void {
+    window.location.reload();
   }
 
 }

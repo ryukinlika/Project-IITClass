@@ -44,20 +44,11 @@ export class AddUkmComponent implements OnInit {
       token: ['']
     });
 
-    // console.log(this.token);
+    this.temp = (this.pad + localStorage.getItem("OL")).slice(-this.pad.length)
 
   }
 
   addUkm() {
-    if (this.type == "SS") {
-      this.temp = (this.pad + localStorage.getItem("SS")).slice(-this.pad.length)
-    }
-    else if (this.type == "SB") {
-      this.temp = (this.pad + localStorage.getItem("SB")).slice(-this.pad.length)
-    }
-    else if (this.type == "OL") {
-      this.temp = (this.pad + localStorage.getItem("OL")).slice(-this.pad.length)
-    }
     this.submitted = true;
     this.loading = true;
     // console.log('ree');
@@ -106,6 +97,15 @@ export class AddUkmComponent implements OnInit {
 
   setType(str: string) {
     this.type = str;
+    if (this.type == "SS") {
+      this.temp = (this.pad + localStorage.getItem("SS")).slice(-this.pad.length)
+    }
+    else if (this.type == "SB") {
+      this.temp = (this.pad + localStorage.getItem("SB")).slice(-this.pad.length)
+    }
+    else if (this.type == "OL") {
+      this.temp = (this.pad + localStorage.getItem("OL")).slice(-this.pad.length)
+    }
   }
   info() {
     alert("Tipe UKM yang tersedia: \n -OL : Olahraga\n -SB : Seni dan Budaya\n -SS : Science dan Sosial");

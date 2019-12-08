@@ -9,7 +9,6 @@ import {
 import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
 import { AuthAPIService } from ".././_shared/services/auth-api.service";
-import { SearchPipe } from "src/app/_shared/services/search.pipe";
 
 @Component({
   selector: "app-home",

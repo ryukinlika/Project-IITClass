@@ -1,7 +1,6 @@
 import { PelayananAPIService } from './../../services/pelayanan-api.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthAPIService } from '../../services/auth-api.service';
-import { Url } from 'url';
 
 @Component({
   selector: 'app-header',
