@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, BehaviorSubject } from "rxjs";
+import { mergeMap, switchMap } from 'rxjs/operators';
+
 
 import { serverResponse } from "../models/serverResponse";
 import { Router } from "@angular/router";
@@ -16,6 +18,7 @@ export class AuthAPIService {
   public username: Observable<any>;
   private fotoSource: BehaviorSubject<any>;
   public foto: Observable<any>;
+  private temp;
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -36,7 +39,7 @@ export class AuthAPIService {
   }
 
   login(data: any): Observable<serverResponse> {
-    return this.http.post<serverResponse>(`${this.urlApi}/api/login`, data);
+    return this.http.post<serverResponse>(`${this.urlApi}/api/login`, data)
   }
 
   verify(data: string): Observable<serverResponse> {
@@ -44,6 +47,7 @@ export class AuthAPIService {
   }
 
   update(data: string): Observable<serverResponse> {
+    this.fotochange();
     return this.http.put<serverResponse>(`${this.urlApi}/api/update`, data);
   }
 
@@ -68,10 +72,14 @@ export class AuthAPIService {
     localStorage.setItem("user", JSON.stringify(data));
     //console.log(data);
     this.userchange();
+    this.fotochange();
   }
 
   userchange() {
     this.usernameSource.next(localStorage.getItem("user_name"));
+  }
+
+  fotochange() {
     this.fotoSource.next(localStorage.getItem("avatar_profile"));
   }
 
