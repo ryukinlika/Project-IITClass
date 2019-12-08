@@ -31,32 +31,23 @@
       </button>
     </li>
   </ul>
+
   <ul *ngIf="loggedIn" class="navbar-nav ml-auto">
+    <li class="nav-item dropdown">
 
-    <li class="nav-item">
-
-      <a routerLink="/user">
-        <img [src]="foto" alt="User Picture" id="profileavatar" class="avatar">
-        <button type="button" class="btn btn-light" routerLink="/user" style="margin: 5px; float: right;">
-          {{username}}
-        </button>
+      <a href="#" class="nav-link" data-toggle="dropdown">
+        <img src="{{foto}}" id="profileavatar" class="avatar">
       </a>
 
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link" data-toggle="dropdown">
-    <li class="nav-item">
-      <a><img src="{{foto}}" id="profileavatar" class="avatar"></a>
-    </li>
-    </a>
-
-    <div class="dropdown-menu dropdown-menu-right animate slideIn">
-      <a href="/user" class="dropdown-item">Signed in as <br><strong>{{username}}</strong></a>
-      <div class="dropdown-divider"></div>
-      <a href="/user" class="dropdown-item">My Profile</a>
-      <div class="dropdown-divider"></div>
-      <a (click)="logOut()" class="dropdown-item">Logout</a>
-    </div>
+      <div class="dropdown-menu dropdown-menu-right animate slideIn">
+        <a href="/user" class="dropdown-item">Signed in as <br><strong>{{username}}</strong></a>
+        <div class="dropdown-divider"></div>
+        <a href="/user" class="dropdown-item">My Profile</a>
+        <div class="dropdown-divider"></div>
+        <a (click)="logOut()" class="dropdown-item">Logout</a>
+      </div>
 
     </li>
   </ul>
+
 </nav>
