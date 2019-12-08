@@ -1,1 +1,111 @@
+<div class="container">
+  <div class="col-md-12 mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h3>Add New UKM</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addForm">
+          <div class="form-row">
+            <div class="form-group col-4">
+              <label for="kode">Kode UKM</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                    data-toggle="dropdown">Tipe</button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" (click)="setType('OL')">OL</button>
+                    <button class="dropdown-item" (click)="setType('SB')">SB</button>
+                    <button class="dropdown-item" (click)="setType('SS')">SS</button>
+                  </div>
+                  <span class="input-group-text">{{type}}</span>
+                </div>
 
+                <input type="number" formControlName="kode" class="form-control"
+                  [ngClass]="{'is-invalid' : submitted && f.kode.errors}">
+                <div *ngIf="submitted && f.kode.errors" class="invalid-feedback">
+                  <div *ngIf="f.kode.errors.required">Kode UKM is required</div>
+                </div>
+
+                <div class="input-group-append">
+                  <button class="btn btn-xm rounded-circle" (click)="info()">?</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-6">
+              <label for="nama">Nama UKM</label>
+              <input type="text" formControlName="nama" class="form-control"
+                [ngClass]="{'is-invalid' : submitted && f.nama.errors}">
+              <div *ngIf="submitted && f.nama.errors" class="invalid-feedback">
+                <div *ngIf="f.nama.errors.required">Nama UKM is required</div>
+              </div>
+            </div>
+
+            <div class="form-group col-2">
+              <label for="anggota">Jumlah Anggota</label>
+              <input type="number" formControlName="anggota" class="form-control"
+                [ngClass]="{'is-invalid' : submitted && f.anggota.errors}">
+              <div *ngIf="submitted && f.anggota.errors" class="invalid-feedback">
+                <div *ngIf="f.anggota.errors.required">Jumlah Anggota UKM is required</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="deskripsi">Deskripsi UKM</label>
+              <textarea formControlName="deskripsi" class="form-control" rows="6"
+                [ngClass]="{'is-invalid' : submitted && f.deskripsi.errors}"> </textarea>
+              <div *ngIf="submitted && f.deskripsi.errors" class="invalid-feedback">
+                <div *ngIf="f.deskripsi.errors.required">Deskripsi UKM is required</div>
+              </div>
+            </div>
+            <div class="col-5 offset-1">
+              <img [src]="image" alt="Photo UKM" (error)="changeImage()" style="width: inherit; height:auto;">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <label for="foto">Link Foto UKM</label>
+              <div class="input-group">
+                <input type="text" formControlName="foto" class="form-control"
+                  [ngClass]="{'is-invalid' : submitted && f.foto.errors}" />
+                <div class="input-group-append">
+                  <button class="btn-group-sm btn-info" (click)="setImg()">Preview Image</button>
+                </div>
+                <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
+                  <div *ngIf="f.foto.errors.required">Link Foto UKM is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label for="jam_mulai">Jam Mulai UKM</label>
+              <input type="time" formControlName="jam_mulai" class="form-control"
+                [ngClass]="{'is-invalid' : submitted && f.jam_mulai.errors}" />
+              <div *ngIf="submitted && f.jam_mulai.errors" class="invalid-feedback">
+                <div *ngIf="f.jam_mulai.errors.required">Jam Mulai UKM is required</div>
+              </div>
+            </div>
+            <div class="form-group col-3 ml-3">
+              <label for="jam_selesai">Jam Selesai UKM</label>
+              <input type="time" formControlName="jam_selesai" class="form-control" />
+              <div class="alert-light">Kosongkan jika tidak pasti</div>
+            </div>
+          </div>
+          <button [disabled]="loading" class="btn btn-primary mr-3" (click)="addUkm()">
+            Add UKM
+          </button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

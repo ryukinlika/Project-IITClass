@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public APIAuth: AuthAPIService,
+    public authAPI: AuthAPIService,
     private router: Router
   ) { }
 
@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
 
     this.data.value.password = CryptoJS.SHA512(this.regisForm.value.password).toString();
     console.log(JSON.stringify(this.data.value));
-    this.APIAuth.register(this.data.value).subscribe(
+    this.authAPI.register(this.data.value).subscribe(
       result => { this.data = result; console.log(this.data); this.redirectToLogin(); },
       error => { console.log(error); this.displayError(error); }
     );

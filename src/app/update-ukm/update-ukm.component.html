@@ -9,17 +9,17 @@
                 <div class="contact-form">
                   <div class="row">
                     <div class="col-md-6">
-                      <input type="text" placeholder="Nama UKM" value="{{ukm.result.nama}}" [(ngModel)]="namaukm">
+                      <input type="text" placeholder="Nama UKM" value="{{ukm?.result.nama}}" [(ngModel)]="namaukm">
                     </div>
                     <div class="col-md-6">
-                      <input type="number" placeholder="Jumlah Anggota" value="{{ukm.result.anggota}}"
+                      <input type="number" placeholder="Jumlah Anggota" value="{{ukm?.result.anggota}}"
                         [(ngModel)]="anggotaukm">
                     </div>
                     <div class=" col-md-6">
-                      <input type="time" value="{{ukm.result.jam_mulai}}" [(ngModel)]="jammulaiukm">
+                      <input type="time" value="{{ukm?.result.jam_mulai}}" [(ngModel)]="jammulaiukm">
                     </div>
                     <div class=" col-md-6">
-                      <input type="time" placeholder="Jam Selesai" value="{{ukm.result.jam_selesai}}"
+                      <input type="time" placeholder="Jam Selesai" value="{{ukm?.result.jam_selesai}}"
                         [(ngModel)]="jamselesaiukm">
                     </div>
                     <div class=" col-md-12">
@@ -36,16 +36,16 @@
             <figure class="hero-image">
               <div class="container-for-image">
                 <div *ngIf="!editImage">
-                  <img [src]="ukm?.result.foto" class="img-responsive foto image">
+                  <img [src]="ukm?.result.foto" alt="Photo UKM" class="img-responsive foto image">
                   <div class="middle">
                     <a (click)="editImage = !editImage"><img src="./../../assets/images/cam_button.png"
-                        class="cam-button"></a>
+                        alt="Change Picture" class="cam-button"></a>
                     <h4 (click)="editImage = !editImage">Change Picture</h4>
                   </div>
                 </div>
               </div>
               <div *ngIf="editImage" class="input-group m-0">
-                <img [src]="ukm?.result.foto" class="img-responsive foto">
+                <img [src]="fotoukm" alt="Photo is not Available!" class="img-responsive foto">
                 <div class="input-group-prepend" style="width: 90%">
                   <div class="input-group-text">Photo Url: </div>
                   <input type="text" class="form-control" placeholder="url" [(ngModel)]="fotoukm">

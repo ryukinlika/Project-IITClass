@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   i: number = 0;
   temp: any[] = [];
   isLoggedIn = false;
-  favo: any;
+  favo?: any[] = [];
   index: any;
 
   constructor(
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
       result => {
         this.ukm = result;
         this.Arr = this.ukm.result.ukm;
-        localStorage.setItem("array", JSON.stringify(this.Arr));
+        this.sortBy(this.Arr)
       },
       error => {
         console.log(error);
@@ -66,13 +66,25 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  sortBy(field: string) {
+    this.ukm.result.ukm.sort((a: any, b: any) => {
+      if (a.nama < b.nama) {
+        return -1;
+      } else if (a.nama > b.nama) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })
+  }
+
   addFave(data: any) {
-    if (this.isLoggedIn == false) {
+    if (!this.isLoggedIn) {
       alert("Silahkan login terlebih dahulu");
       return;
     }
-    this.favo = JSON.parse(localStorage.getItem("favourited"));
-    // console.log(this.favo);
+    if (localStorage.getItem("favourited") != null) this.favo = JSON.parse(localStorage.getItem("favourited"));
+    console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
       this.favo.push(data);

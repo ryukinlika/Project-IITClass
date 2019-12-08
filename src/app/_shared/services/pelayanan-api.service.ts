@@ -34,4 +34,8 @@ export class PelayananAPIService {
     return this.http.get<UKM>(`${this.urlApi}/api/ukm/${kode}`);
   }
 
+  newUKM(data: any): Observable<serverResponse> {
+    return this.http.post<serverResponse>(`${this.urlApi}/api/ukm`, data);
+  }
+
 }
