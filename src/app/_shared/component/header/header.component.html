@@ -1,68 +1,50 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item nav-link home-button" routerLink="/home">
+    <li class="nav-item nav-link" routerLink="/home">
       <a>
-        <img
-          src="./.././.././.././../assets/images/logo-02.png"
-          width="80"
-          height="40"
-        />
+        <img src="./.././.././.././../assets/images/logo-02.png" width="80" height="40" />
       </a>
     </li>
     <li *ngIf="loggedIn" class="nav-item nav-link" routerLink="/favourite">
-      Favourites
+      <h6>
+        My Favourites
+      </h6>
     </li>
 
-    <li
-      *ngIf="loggedIn"
-      class="nav-item nav-link align-middle"
-      routerLink="/Add-Ukm"
-    >
-      Add New UKM
+    <li *ngIf="loggedIn" class="nav-item nav-link align-middle" routerLink="/Add-Ukm">
+      <h6>
+        Add New UKM
+      </h6>
     </li>
   </ul>
   <ul *ngIf="!loggedIn" class="navbar-nav ml-auto">
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-light"
-        routerLink="/register"
-        style="margin: 5px; float: right;"
-      >
+      <button type="button" class="btn btn-light" routerLink="/register" style="margin: 5px; float: right;">
         Sign Up
       </button>
     </li>
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-outline-light"
-        routerLink="/login"
-        style="margin: 5px; float: right;"
-      >
+      <button type="button" class="btn btn-outline-light" routerLink="/login" style="margin: 5px; float: right;">
         Log In
       </button>
     </li>
   </ul>
   <ul *ngIf="loggedIn" class="navbar-nav ml-auto">
-    <li class="nav-item">
-      
-      <a routerLink="/user">
-        <img src="{{foto}}" id="profileavatar" class="avatar">
-        <button type="button" class="btn btn-light" routerLink="/user" style="margin: 5px; float: right;">
-          {{username}}
-        </button>
-      </a>
 
-    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link" data-toggle="dropdown">
     <li class="nav-item">
-      <button
-        type="button"
-        class="btn btn-link"
-        (click)="logOut()"
-        style="margin: 5px; float: right;"
-      >
-        Logout
-      </button>
+      <a><img src="{{foto}}" id="profileavatar" class="avatar"></a>
+    </li>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-right animate slideIn">
+      <a href="/user" class="dropdown-item">Signed in as <br><strong>{{username}}</strong></a>
+      <div class="dropdown-divider"></div>
+      <a href="/user" class="dropdown-item">My Profile</a>
+      <div class="dropdown-divider"></div>
+      <a (click)="logOut()" class="dropdown-item">Logout</a>
+    </div>
     </li>
   </ul>
 </nav>
