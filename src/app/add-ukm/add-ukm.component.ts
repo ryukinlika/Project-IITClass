@@ -34,7 +34,7 @@ export class AddUkmComponent implements OnInit {
     this.authAPI.checkAuth(JSON.parse(localStorage.getItem("user")));
 
     this.addForm = this.fb.group({
-      kode: ['', Validators.required],
+      kode: [''],
       nama: ['', Validators.required],
       anggota: ['', Validators.required],
       foto: ['', Validators.required],
@@ -51,7 +51,7 @@ export class AddUkmComponent implements OnInit {
   addUkm() {
     this.submitted = true;
     this.loading = true;
-    // console.log('ree');
+    console.log('ree');
     // console.log(this.addForm.value.jam_selesai);
 
     if (this.addForm.invalid) {
