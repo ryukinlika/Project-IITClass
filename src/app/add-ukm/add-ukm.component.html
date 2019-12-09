@@ -21,11 +21,7 @@
                   <span class="input-group-text">{{type}}</span>
                 </div>
 
-                <input type="number" formControlName="kode" class="form-control"
-                  [ngClass]="{'is-invalid' : submitted && f.kode.errors}">
-                <div *ngIf="submitted && f.kode.errors" class="invalid-feedback">
-                  <div *ngIf="f.kode.errors.required">Kode UKM is required</div>
-                </div>
+                <input type="text" value="{{temp}}" formControlName="kode" class="form-control" readonly>
 
                 <div class="input-group-append">
                   <button class="btn btn-xm rounded-circle" (click)="info()">?</button>

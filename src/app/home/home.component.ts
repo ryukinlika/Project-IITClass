@@ -9,7 +9,6 @@ import {
 import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
 import { AuthAPIService } from ".././_shared/services/auth-api.service";
-import { SearchPipe } from "src/app/_shared/services/search.pipe";
 
 @Component({
   selector: "app-home",
@@ -37,6 +36,9 @@ export class HomeComponent implements OnInit {
   isLoggedIn = false;
   favo?: any[] = [];
   index: any;
+  SS: number = 1
+  SB: number = 1
+  OL: number = 1
 
   constructor(
     private pelayanApi: PelayananAPIService,
@@ -49,6 +51,21 @@ export class HomeComponent implements OnInit {
       result => {
         this.ukm = result;
         this.Arr = this.ukm.result.ukm;
+
+        for (let i = 0; i < this.Arr.length; i++) {
+          if (this.Arr[i].kode.includes("SB") == true) {
+            this.SB += 1
+          }
+          else if (this.Arr[i].kode.includes("SS") == true) {
+            this.SS += 1
+          }
+          else if (this.Arr[i].kode.includes("OL") == true) {
+            this.OL += 1
+          }
+        }
+        localStorage.setItem("OL", this.OL.toString())
+        localStorage.setItem("SB", this.SB.toString())
+        localStorage.setItem("SS", this.SS.toString())
         this.sortBy(this.Arr)
       },
       error => {
