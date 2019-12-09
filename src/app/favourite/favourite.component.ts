@@ -31,14 +31,14 @@ export class FavouriteComponent implements OnInit {
   test: any;
   arr = [1, 2, 3, 4];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.loadFavo();
   }
 
   loadFavo() {
-    this.favo = JSON.parse(localStorage.getItem("favourited"));
+    this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
     console.log(this.favo);
   }
 
@@ -46,6 +46,6 @@ export class FavouriteComponent implements OnInit {
     this.temp = data.id;
     this.index = this.favo.findIndex(record => record.id == this.temp);
     this.favo.splice(this.index, 1);
-    localStorage.setItem("favourited", JSON.stringify(this.favo));
+    localStorage.setItem("favourited" + localStorage.getItem("user_name"), JSON.stringify(this.favo));
   }
 }

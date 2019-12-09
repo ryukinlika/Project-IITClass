@@ -2,7 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as CryptoJS from "crypto-js";
 import { AuthAPIService } from "../_shared/services/auth-api.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { mergeMap, switchMap, map, mergeAll } from 'rxjs/operators';
+import { from } from 'rxjs';
+
 
 @Component({
   selector: "app-login",
@@ -18,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private form: FormBuilder,
     public APIAuth: AuthAPIService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -41,6 +44,13 @@ export class LoginFormComponent implements OnInit {
     this.data.value.password = CryptoJS.SHA512(
       this.data.value.password
     ).toString();
+    // this.APIAuth.login(this.data.value).pipe(
+    //   map(result => {
+    //     this.data = result,
+    //       localStorage.setItem("profile", JSON.stringify(this.data)
+    //   })
+    // ).subscribe(result => { console.log(result) })
+
     this.APIAuth.login(this.data.value).subscribe(
       result => {
         this.data = result;
