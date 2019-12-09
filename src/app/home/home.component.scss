@@ -45,12 +45,12 @@ body {
   padding: 10px;
 }
 
-.searchBox:hover>.searchInput {
+.searchBox:hover > .searchInput {
   width: 240px;
   padding: 0 6px;
 }
 
-.searchBox:hover>.searchButton {
+.searchBox:hover > .searchButton {
   color: #2f3640;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 @media screen and (max-width: 620px) {
-  .searchBox:hover>.searchInput {
+  .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
   }
@@ -100,8 +100,6 @@ body {
   grid-gap: 20px;
 }
 
-
-
 .tab-icon {
   filter: invert(100%);
   width: 10%;
@@ -117,4 +115,9 @@ body {
 
 .hide-overflow {
   overflow: hidden;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 750px 20px;
 }
