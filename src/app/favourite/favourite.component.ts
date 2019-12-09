@@ -1,9 +1,27 @@
 import { Component, OnInit } from "@angular/core";
+import {
+  style,
+  transition,
+  animate,
+  trigger,
+  state
+} from "@angular/animations";
 
 @Component({
   selector: "app-favourite",
   templateUrl: "./favourite.component.html",
-  styleUrls: ["./favourite.component.scss"]
+  styleUrls: ["./favourite.component.scss"],
+  animations: [
+    trigger("fadeInOut", [
+      state(
+        "void",
+        style({
+          opacity: 0
+        })
+      ),
+      transition("void <=> *", animate(1000))
+    ])
+  ]
 })
 export class FavouriteComponent implements OnInit {
   favo: any;
