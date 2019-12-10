@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   style,
   transition,
@@ -9,6 +9,7 @@ import {
 import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
 import { AuthAPIService } from ".././_shared/services/auth-api.service";
+
 
 @Component({
   selector: "app-home",
@@ -32,10 +33,10 @@ export class HomeComponent implements OnInit {
   Arr: any;
   num: number = 5;
   i: number = 0;
-  temp: any[] = [];
   isLoggedIn = false;
   favo?: any[] = [];
   index: any;
+  temp: any;
   SS: number = 1
   SB: number = 1
   OL: number = 1
@@ -46,7 +47,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(localStorage.getItem(this.expires_at));
     this.pelayanApi.getAllUKM().subscribe(
       result => {
         this.ukm = result;
@@ -66,7 +66,6 @@ export class HomeComponent implements OnInit {
         localStorage.setItem("OL", this.OL.toString())
         localStorage.setItem("SB", this.SB.toString())
         localStorage.setItem("SS", this.SS.toString())
-        this.sortBy(this.Arr)
       },
       error => {
         console.log(error);
@@ -83,16 +82,51 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  sortBy(field: string) {
-    this.ukm.result.ukm.sort((a: any, b: any) => {
-      if (a.nama < b.nama) {
-        return -1;
-      } else if (a.nama > b.nama) {
-        return 1;
-      } else {
-        return 0;
-      }
-    })
+  sortby(str: string) {
+    if (str == "kode") {
+      this.ukm.result.ukm.sort((a: any, b: any) => {
+        if (a.kode < b.kode) {
+          return -1;
+        } else if (a.kode > b.kode) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+    }
+    if (str == "nama") {
+      this.ukm.result.ukm.sort((a: any, b: any) => {
+        if (a.nama < b.nama) {
+          return -1;
+        } else if (a.nama > b.nama) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+    }
+    if (str == "created_at") {
+      this.ukm.result.ukm.sort((a: any, b: any) => {
+        if (a.created_at < b.created_at) {
+          return -1;
+        } else if (a.created_at > b.created_at) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+    }
+    if (str == "updated_at") {
+      this.ukm.result.ukm.sort((a: any, b: any) => {
+        if (a.updated_at < b.updated_at) {
+          return -1;
+        } else if (a.updated_at > b.updated_at) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+    }
   }
 
   addFave(data: any) {
@@ -112,12 +146,7 @@ export class HomeComponent implements OnInit {
 
     alert("Tidak dapat menambahkan UKM yang sama!");
 
-    // console.log(data);
-    // console.log(this.temp[1]);
-    // console.log(JSON.parse(localStorage.getItem("favourited")));
+
     return;
   }
-
-  //buat apa ni VVVVV
-  onKeydown($event: any) { }
 }

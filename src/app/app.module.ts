@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -12,6 +13,8 @@ import { HomeComponent } from "./home/home.component";
 import { RegisterComponent } from "./register/register.component";
 import { UkmDetailComponent } from "./ukm-detail/ukm-detail.component";
 import { HttpClientModule } from "@angular/common/http";
+import { MatMenuModule } from '@angular/material/menu'
+import { MatIconModule } from '@angular/material/icon';
 
 import { LoginFormComponent } from "./login/login.component";
 import { ProfileComponent } from "./profile/profile.component";
@@ -42,7 +45,10 @@ import { SearchPipe } from './../../src/app/_shared/services/search.pipe';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
