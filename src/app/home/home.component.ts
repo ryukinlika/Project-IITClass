@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit {
       alert("Silahkan login terlebih dahulu");
       return;
     }
-    if (localStorage.getItem("favourited") != null) this.favo = JSON.parse(localStorage.getItem("favourited"));
+    if (localStorage.getItem("favourited" + localStorage.getItem("user_name")) != null) this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
     console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
