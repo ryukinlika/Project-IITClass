@@ -53,13 +53,13 @@ export class HomeComponent implements OnInit {
         this.Arr = this.ukm.result.ukm;
 
         for (let i = 0; i < this.Arr.length; i++) {
-          if (this.Arr[i].kode.includes("SB") == true) {
+          if (this.Arr[i].kode.includes("SB")) {
             this.SB += 1
           }
-          else if (this.Arr[i].kode.includes("SS") == true) {
+          else if (this.Arr[i].kode.includes("SS")) {
             this.SS += 1
           }
-          else if (this.Arr[i].kode.includes("OL") == true) {
+          else if (this.Arr[i].kode.includes("OL")) {
             this.OL += 1
           }
         }
