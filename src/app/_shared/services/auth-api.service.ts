@@ -88,7 +88,6 @@ export class AuthAPIService {
     localStorage.removeItem("expires_at");
     localStorage.removeItem("user_name");
     localStorage.removeItem("user");
-    localStorage.removeItem("favourited");
 
     this.usernameSource.next(null);
     this.fotoSource.next(null);

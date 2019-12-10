@@ -82,7 +82,7 @@
           <div class="form-row">
             <div class="form-group col-3">
               <label for="jam_mulai">Jam Mulai UKM</label>
-              <input type="time" formControlName="jam_mulai" class="form-control"
+              <input type="time" formControlName="jam_mulai" class="form-control timepicker"
                 [ngClass]="{'is-invalid' : submitted && f.jam_mulai.errors}" />
               <div *ngIf="submitted && f.jam_mulai.errors" class="invalid-feedback">
                 <div *ngIf="f.jam_mulai.errors.required">Jam Mulai UKM is required</div>

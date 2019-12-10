@@ -2,43 +2,24 @@
   <mat-tab-group style="min-height:800px;">
     <mat-tab>
       <ng-template mat-tab-label>
-        <img
-          src="./.././../assets/images/athletics.png"
-          alt="Athletics Logo"
-          class="tab-icon"
-        />
+        <img src="./.././../assets/images/athletics.png" alt="Athletics Logo" class="tab-icon" />
         <span style="color: white">Athletics</span>
       </ng-template>
       <div *ngFor="let favos of favo" class="hide-overflow">
-        <div
-          *ngIf="favos.kode.includes('OL')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="favos.kode.includes('OL')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
-
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
-              <img [src]="favos?.foto" alt="Photo UKM" />
-
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+              <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
             <div class="card-block w-75">
               <h4 class="card-title">{{ favos?.nama }}</h4>
               <p class="card-text ">
                 {{ favos?.deskripsi }}
               </p>
-              <button class="btn btn-danger" (click)="removeFavo(favos)">
-                <i class="far fa-trash-alt ">
-                  Delete
-                </i>
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
               </button>
-              <a
-                routerLink="../ukmdetail/{{ favos?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>
@@ -49,43 +30,24 @@
 
     <mat-tab>
       <ng-template mat-tab-label>
-        <img
-          src="./.././../assets/images/art.png"
-          alt="Art Logo"
-          class="tab-icon"
-        />
+        <img src="./.././../assets/images/art.png" alt="Art Logo" class="tab-icon" />
         <span style="color: white">Art & Culture</span>
       </ng-template>
       <div *ngFor="let favos of favo">
-        <div
-          *ngIf="favos.kode.includes('SB')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="favos.kode.includes('SB')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
-
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
-              <img [src]="favos?.foto" alt="Photo UKM" />
-
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+              <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
             <div class="card-block w-75">
               <h4 class="card-title">{{ favos?.nama }}</h4>
               <p class="card-text ">
                 {{ favos?.deskripsi }}
               </p>
-              <button class="btn btn-danger" (click)="removeFavo(favos)">
-                <i class="far fa-trash-alt ">
-                  Delete
-                </i>
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
               </button>
-              <a
-                routerLink="../ukmdetail/{{ favos?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>
@@ -96,43 +58,24 @@
 
     <mat-tab>
       <ng-template mat-tab-label>
-        <img
-          src="./.././../assets/images/sciencesocial.png"
-          alt="Science and Social Logo"
-          class="tab-icon"
-        />
+        <img src="./.././../assets/images/sciencesocial.png" alt="Science and Social Logo" class="tab-icon" />
         <span style="color: white">Science & Social</span>
       </ng-template>
       <div *ngFor="let favos of favo">
-        <div
-          *ngIf="favos.kode.includes('SS')"
-          data-aos="fade-right"
-          data-aos-duration="500"
-          data-aos-delay="100"
-        >
+        <div *ngIf="favos.kode.includes('SS')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
           <div class="card flex-row flex-wrap p-2">
-
-            <div
-              class="card-header border-0 w-25 my-auto"
-              style="background: white;"
-            >
-              <img [src]="favos?.foto" alt="Photo UKM" />
-
+            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+              <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
             <div class="card-block w-75">
               <h4 class="card-title">{{ favos?.nama }}</h4>
               <p class="card-text ">
                 {{ favos?.deskripsi }}
               </p>
-              <button class="btn btn-danger" (click)="removeFavo(favos)">
-                <i class="far fa-trash-alt ">
-                  Delete
-                </i>
+              <button class="btn btn-primary" (click)="removeFavo(favos)">
+                Remove from Favourite
               </button>
-              <a
-                routerLink="../ukmdetail/{{ favos?.kode }}"
-                class="btn btn-primary m-1"
-              >
+              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
                 SEE MORE DETAILS
               </a>
             </div>

@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
       this.favo.push(data);
-      localStorage.setItem("favourited", JSON.stringify(this.favo));
+      localStorage.setItem("favourited" + localStorage.getItem("user_name"), JSON.stringify(this.favo));
       alert("Berhasil menambahkan ke favorit!");
       return;
     }
