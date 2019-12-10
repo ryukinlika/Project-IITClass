@@ -22,16 +22,12 @@ export class PelayananAPIService {
     return this.http.get<UKM>(`${this.urlApi}/api/ukm`);
   }
 
-  getUKMbykode(kode: number): Observable<UKM> {
+  getUKMbykode(kode: string): Observable<UKM> {
     return this.http.get<UKM>(`${this.urlApi}/api/ukm/${kode}`);
   }
 
   updateUKM(data: string, kode: string): Observable<serverResponse> {
     return this.http.put<serverResponse>(`${this.urlApi}/api/ukm/${kode}`, data);
-  }
-
-  getUKMbykodae(kode: number): Observable<UKM> {
-    return this.http.get<UKM>(`${this.urlApi}/api/ukm/${kode}`);
   }
 
   newUKM(data: any): Observable<serverResponse> {
