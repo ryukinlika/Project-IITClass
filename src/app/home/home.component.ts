@@ -10,7 +10,6 @@ import { UKM } from "../_shared/models/ukm";
 import { PelayananAPIService } from "../_shared/services/pelayanan-api.service";
 import { AuthAPIService } from ".././_shared/services/auth-api.service";
 
-
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -37,14 +36,15 @@ export class HomeComponent implements OnInit {
   favo?: any[] = [];
   index: any;
   temp: any;
-  SS: number = 1
-  SB: number = 1
-  OL: number = 1
+  isFavorited = false;
+  SS: number = 1;
+  SB: number = 1;
+  OL: number = 1;
 
   constructor(
     private pelayanApi: PelayananAPIService,
     private authAPI: AuthAPIService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.pelayanApi.getAllUKM().subscribe(
@@ -54,18 +54,16 @@ export class HomeComponent implements OnInit {
 
         for (let i = 0; i < this.Arr.length; i++) {
           if (this.Arr[i].kode.includes("SB")) {
-            this.SB += 1
-          }
-          else if (this.Arr[i].kode.includes("SS")) {
-            this.SS += 1
-          }
-          else if (this.Arr[i].kode.includes("OL")) {
-            this.OL += 1
+            this.SB += 1;
+          } else if (this.Arr[i].kode.includes("SS")) {
+            this.SS += 1;
+          } else if (this.Arr[i].kode.includes("OL")) {
+            this.OL += 1;
           }
         }
-        localStorage.setItem("OL", this.OL.toString())
-        localStorage.setItem("SB", this.SB.toString())
-        localStorage.setItem("SS", this.SS.toString())
+        localStorage.setItem("OL", this.OL.toString());
+        localStorage.setItem("SB", this.SB.toString());
+        localStorage.setItem("SS", this.SS.toString());
       },
       error => {
         console.log(error);
@@ -92,11 +90,11 @@ export class HomeComponent implements OnInit {
         } else {
           return 0;
         }
-      })
+      });
     }
     if (str == "nama") {
       this.ukm.result.ukm.sort((a: any, b: any) => {
-        console.log(a.nama, ",", b.nama)
+        console.log(a.nama, ",", b.nama);
         if (a.nama < b.nama) {
           return -1;
         } else if (a.nama > b.nama) {
@@ -104,7 +102,7 @@ export class HomeComponent implements OnInit {
         } else {
           return 0;
         }
-      })
+      });
     }
     if (str == "anggota") {
       this.ukm.result.ukm.sort((a: any, b: any) => {
@@ -115,7 +113,7 @@ export class HomeComponent implements OnInit {
         } else {
           return 0;
         }
-      })
+      });
     }
     if (str == "updated_at") {
       this.ukm.result.ukm.sort((a: any, b: any) => {
@@ -126,7 +124,7 @@ export class HomeComponent implements OnInit {
         } else {
           return 0;
         }
-      })
+      });
     }
   }
 
@@ -135,19 +133,27 @@ export class HomeComponent implements OnInit {
       alert("Silahkan login terlebih dahulu");
       return;
     }
-    if (localStorage.getItem("favourited" + localStorage.getItem("user_name")) != null) this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
+    if (
+      localStorage.getItem("favourited" + localStorage.getItem("user_name")) !=
+      null
+    )
+      this.favo = JSON.parse(
+        localStorage.getItem("favourited" + localStorage.getItem("user_name"))
+      );
     console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
       this.favo.push(data);
-      localStorage.setItem("favourited" + localStorage.getItem("user_name"), JSON.stringify(this.favo));
+      localStorage.setItem(
+        "favourited" + localStorage.getItem("user_name"),
+        JSON.stringify(this.favo)
+      );
+      this.isFavorited = true;
       alert("Berhasil menambahkan ke favorit!");
       return;
     }
 
     alert("Tidak dapat menambahkan UKM yang sama!");
-
-
     return;
   }
 }
