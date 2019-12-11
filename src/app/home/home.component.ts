@@ -96,6 +96,7 @@ export class HomeComponent implements OnInit {
     }
     if (str == "nama") {
       this.ukm.result.ukm.sort((a: any, b: any) => {
+        console.log(a.nama, ",", b.nama)
         if (a.nama < b.nama) {
           return -1;
         } else if (a.nama > b.nama) {
@@ -105,11 +106,11 @@ export class HomeComponent implements OnInit {
         }
       })
     }
-    if (str == "created_at") {
+    if (str == "anggota") {
       this.ukm.result.ukm.sort((a: any, b: any) => {
-        if (a.created_at < b.created_at) {
+        if (a.anggota < b.anggota) {
           return -1;
-        } else if (a.created_at > b.created_at) {
+        } else if (a.anggota > b.anggota) {
           return 1;
         } else {
           return 0;

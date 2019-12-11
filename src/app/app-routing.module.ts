@@ -8,6 +8,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { AddUkmComponent } from "./add-ukm/add-ukm.component";
 import { UpdateUkmComponent } from "./update-ukm/update-ukm.component";
 import { FavouriteComponent } from "./favourite/favourite.component";
+import { ProfilKelompokComponent } from './profil-kelompok/profil-kelompok.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: "user",
     component: ProfileComponent
+  },
+  {
+    path: "profile-kelompok",
+    component: ProfilKelompokComponent
   }
 
 ];

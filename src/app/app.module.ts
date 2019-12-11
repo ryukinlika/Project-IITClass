@@ -22,6 +22,7 @@ import { AddUkmComponent } from "./add-ukm/add-ukm.component";
 import { UpdateUkmComponent } from "./update-ukm/update-ukm.component";
 import { FavouriteComponent } from "./favourite/favourite.component";
 import { SearchPipe } from './../../src/app/_shared/services/search.pipe';
+import { ProfilKelompokComponent } from './profil-kelompok/profil-kelompok.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SearchPipe } from './../../src/app/_shared/services/search.pipe';
     AddUkmComponent,
     UpdateUkmComponent,
     FavouriteComponent,
-    SearchPipe
+    SearchPipe,
+    ProfilKelompokComponent
   ],
   imports: [
     BrowserModule,
