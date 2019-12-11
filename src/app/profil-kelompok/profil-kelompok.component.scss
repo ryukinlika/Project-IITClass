@@ -1,0 +1,356 @@
+.card-container {
+  width: 100%;
+  padding-top: 80px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.masthead {
+  height: 50vh;
+  min-height: 500px;
+  background-image: url("./.././../assets/images/umnbg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(70%);
+  color: white;
+}
+
+.neglectmasthead {
+  filter: brightness(100%);
+}
+
+.logosettings {
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.paragraph-settings {
+  grid-column: 2/3;
+}
+
+body {
+  background-image: linear-gradient(to right, #cb2d3e, #ef473a);
+}
+
+.searchBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #2f3640;
+  height: 60px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.searchBox:hover>.searchInput {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.searchBox:hover>.searchButton {
+  color: #2f3640;
+}
+
+.searchButton {
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 100px;
+}
+
+@media screen and (max-width: 620px) {
+  .searchBox:hover>.searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
+}
+
+.mat-tab-group {
+  min-width: 25px !important;
+  padding: 5px;
+  color: black;
+  background-color: #343a40;
+}
+
+.css-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 20px;
+}
+
+.tab-icon {
+  filter: invert(100%);
+  width: 10%;
+}
+
+.animated {
+  visibility: visible !important;
+}
+
+.hide-on-init {
+  visibility: hidden;
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 750px 20px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+
+  &.grid-1 {
+    grid-auto-columns: 0/1;
+  }
+
+}
+
+.foto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.edit-button {
+  margin-left: 20px;
+}
+
+/* =================================
+  ------------------------------------
+    Civic - CV Resume
+    Version: 1.0
+   ------------------------------------ 
+   ====================================*/
+
+/*----------------------------------------*/
+/* Template default CSS
+  /*----------------------------------------*/
+html,
+body {
+  height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #40424a;
+  margin: 0;
+  font-weight: 600;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+  color: #808181;
+  line-height: 1.8;
+}
+
+img {
+  max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+/*---------------------
+      Helper CSS
+  -----------------------*/
+.spad {
+  padding-top: 125px;
+  padding-bottom: 110px;
+}
+
+.section-title h2 {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 110px;
+  padding-bottom: 2px;
+  line-height: normal;
+}
+
+.section-title h2:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: #40424a;
+}
+
+.set-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*------------------------
+    Common Elements
+  --------------------------*/
+
+/* Preloder */
+#preloder {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: #fff;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  border-left-color: transparent;
+  animation: loader 0.8s linear infinite;
+  -webkit-animation: loader 0.8s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.hero-section {
+  background: #f2f7f8;
+}
+
+.hero-text {
+  margin-bottom: 80px;
+}
+
+.hero-text h2 {
+  font-size: 170px;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 33px;
+  line-height: 1.3;
+}
+
+.hero-image {
+  padding-top: 70px;
+}
+
+.hero-info h2 {
+  margin-bottom: 30px;
+}
+
+.hero-info ul {
+  list-style: none;
+}
+
+.hero-info ul li {
+  font-size: 24px;
+  color: #808181;
+  margin-bottom: 15px;
+}
+
+.hero-info ul li span {
+  color: #40424a;
+  display: inline-block;
+  min-width: 220px;
+}
+
+.hero-info ul li:last-child {
+  margin-bottom: 0;
+}
