@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
   favo?: any[] = [];
   index: any;
   temp: any;
+  numbercheck: number;
+  newArr: any[] = []
+  counter = 0;
   isFavorited = false;
   SS = 1;
   SB = 1;
@@ -66,20 +69,30 @@ export class HomeComponent implements OnInit {
     this.pelayanApi.getAllUKM().subscribe(
       result => {
         this.ukm = result;
+        this.sortby("kode");
         this.Arr = this.ukm.result.ukm;
 
+        //Check berapa banyak setiap kode jumlahnya, dan filter yang idnya tidak benar
         for (let i = 0; i < this.Arr.length; i++) {
-          if (this.Arr[i].kode.includes('SB')) {
+          this.temp = (this.Arr[i].kode).substring(2, 5)
+          this.numbercheck = parseInt(this.temp);
+          if (this.Arr[i].kode.includes("SB") && this.numbercheck == this.SB) {
             this.SB += 1;
-          } else if (this.Arr[i].kode.includes('SS')) {
+          } else if (this.Arr[i].kode.includes("SS") && this.numbercheck == this.SS) {
             this.SS += 1;
-          } else if (this.Arr[i].kode.includes('OL')) {
+          } else if (this.Arr[i].kode.includes("OL") && this.numbercheck == this.OL) {
             this.OL += 1;
           }
+          else {
+            continue;
+          }
+          this.newArr[this.counter] = this.Arr[i]
+          this.counter++
         }
-        localStorage.setItem('OL', this.OL.toString());
-        localStorage.setItem('SB', this.SB.toString());
-        localStorage.setItem('SS', this.SS.toString());
+        this.ukm.result = { count: this.counter, ukm: this.newArr }
+        localStorage.setItem("OL", this.OL.toString());
+        localStorage.setItem("SB", this.SB.toString());
+        localStorage.setItem("SS", this.SS.toString());
       },
       error => {
         console.log(error);
