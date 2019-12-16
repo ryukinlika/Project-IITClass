@@ -24,6 +24,7 @@
         <input type="checkbox" class="mr-2" formControlName="remember_me" />
         <label class="form-check-label" for="remember_me">Remember Me</label>
       </div>
+      <p class="alert alert-danger" *ngIf="submitError">{{errormessage}}</p>
       <button type="submit" class="btn btn-success">Login</button>
     </form>
   </div>

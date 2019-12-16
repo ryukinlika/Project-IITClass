@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as CryptoJS from "crypto-js";
 import { AuthAPIService } from "../_shared/services/auth-api.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { mergeMap, switchMap, map, mergeAll } from 'rxjs/operators';
-import { from } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 
 @Component({
@@ -17,6 +17,9 @@ export class LoginFormComponent implements OnInit {
   submitted = false;
 
   private data: any;
+  submitError = false;
+  httpErrorResponse: any;
+  errormessage: string = "";
 
   constructor(
     private form: FormBuilder,
@@ -56,9 +59,19 @@ export class LoginFormComponent implements OnInit {
         this.successLogin(this.data);
       },
       error => {
-        console.log(error);
+        console.log(error); this.displayError(error);
       }
     );
+  }
+
+  displayError(error: HttpErrorResponse) {
+    this.submitError = true;
+    this.errormessage = '';
+    if (error.error.message != undefined) this.errormessage += error.error.message;
+    for (let a in error.error.result) {
+      this.errormessage += error.error.result[a];
+      this.errormessage += "\n";
+    }
   }
 
   successLogin(data: any) {
