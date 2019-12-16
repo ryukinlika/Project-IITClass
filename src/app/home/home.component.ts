@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
         this.sortby("kode");
         this.Arr = this.ukm.result.ukm;
 
+
         //Check berapa banyak setiap kode jumlahnya, dan filter yang idnya tidak benar
         for (let i = 0; i < this.Arr.length; i++) {
           this.temp = (this.Arr[i].kode).substring(2, 5)
@@ -86,10 +87,7 @@ export class HomeComponent implements OnInit {
           else {
             continue;
           }
-          this.newArr[this.counter] = this.Arr[i]
-          this.counter++
         }
-        this.ukm.result = { count: this.counter, ukm: this.newArr }
         localStorage.setItem("OL", this.OL.toString());
         localStorage.setItem("SB", this.SB.toString());
         localStorage.setItem("SS", this.SS.toString());
@@ -98,7 +96,7 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
-    console.log(localStorage.getItem('expires_at'));
+    // console.log(localStorage.getItem('expires_at'));
 
     this.authAPI.username.subscribe(result => {
       if (result == null) {
@@ -123,7 +121,6 @@ export class HomeComponent implements OnInit {
     }
     if (str == 'nama') {
       this.ukm.result.ukm.sort((a: any, b: any) => {
-        console.log(a.nama, ',', b.nama);
         if (a.nama < b.nama) {
           return -1;
         } else if (a.nama > b.nama) {
@@ -169,7 +166,7 @@ export class HomeComponent implements OnInit {
       this.favo = JSON.parse(
         localStorage.getItem('favourited' + localStorage.getItem('user_name'))
       );
-    console.log(this.favo);
+    // console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
       this.favo.push(data);

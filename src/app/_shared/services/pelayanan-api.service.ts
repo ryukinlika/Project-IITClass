@@ -31,11 +31,7 @@ export class PelayananAPIService {
   }
 
   newUKM(data: any): Observable<serverResponse> {
-    console.log("je")
     return this.http.post<serverResponse>(`${this.urlApi}/api/ukm`, data);
-  }
-  newUKM2(data: any): Observable<serverResponse> {
-    return this.http.post<serverResponse>(`${this.urlApi}/api/ukmDetail`, data);
   }
 
 }

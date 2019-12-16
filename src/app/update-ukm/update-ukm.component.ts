@@ -74,7 +74,6 @@ export class UpdateUkmComponent implements OnInit {
     if (this.namaukm == undefined) {
       this.namaukm = this.ukm.result.nama;
     }
-    console.log(this.anggotaukm)
     if (this.anggotaukm == undefined) {
       this.anggotaukm = this.ukm.result.anggota;
     }
@@ -90,7 +89,6 @@ export class UpdateUkmComponent implements OnInit {
     if (this.fotoukm == undefined) {
       this.fotoukm = this.ukm.result.foto;
     }
-    console.log(this.anggotaukm)
 
     this.data = JSON.parse(`{
       "nama": "${this.namaukm}",
@@ -104,7 +102,6 @@ export class UpdateUkmComponent implements OnInit {
 
     this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
       result => {
-        console.log(result);
         this.ngOnInit();
         setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 2000);
 

@@ -51,7 +51,6 @@ export class AddUkmComponent implements OnInit {
   addUkm() {
     this.submitted = true;
     this.loading = true;
-    console.log('ree');
     // console.log(this.addForm.value.jam_selesai);
 
     if (this.addForm.invalid) {

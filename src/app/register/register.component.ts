@@ -49,9 +49,9 @@ export class RegisterComponent implements OnInit {
     this.data = this.regisForm;
 
     this.data.value.password = CryptoJS.SHA512(this.regisForm.value.password).toString();
-    console.log(JSON.stringify(this.data.value));
+    // console.log(JSON.stringify(this.data.value));
     this.authAPI.register(this.data.value).subscribe(
-      result => { this.data = result; console.log(this.data); this.redirectToLogin(); },
+      result => { this.data = result; this.redirectToLogin(); },
       error => { console.log(error); this.displayError(error); }
     );
   }
@@ -65,7 +65,6 @@ export class RegisterComponent implements OnInit {
   displayError(error: HttpErrorResponse) {
     this.submitError = true;
     this.errormessage = '';
-    console.log(error.error.result);
     if (error.error.message != undefined) this.errormessage += error.error.message;
     for (let a in error.error.result) {
       this.errormessage += error.error.result[a];

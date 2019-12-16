@@ -53,17 +53,11 @@ export class AuthAPIService {
 
 
   setSession(data: any) {
-    console.log(data.result.exp);
     this.date = new Date(parseInt(data.result.exp));
-    console.log(this.date);
     this.exp = (this.date.getTime() * 1000).toString();
-    console.log(this.exp);
     this.date = new Date(parseInt(this.exp));
-    console.log(this.date);
     this.exp = this.date.toString();
-    console.log(this.exp);
     localStorage.setItem("expires_at", this.exp);
-    console.log(localStorage.getItem("expires_at"));
 
     localStorage.setItem("user_name", data.result.user.user_name);
     localStorage.setItem("avatar_profile", data.result.user.foto);

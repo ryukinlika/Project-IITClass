@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   loggedIn = false;
   username: string = "";
   foto: string = "";
+  x: any;
 
   constructor(
     private authAPI: AuthAPIService,
@@ -47,8 +48,7 @@ export class HeaderComponent implements OnInit {
       }
     )
 
-    setInterval(this.checkLogin, 180000, this.username);
-
+    this.x = setInterval(() => { this.checkLogin(this.username); }, 1000)
   }
 
   checkLogin(data: any) {
