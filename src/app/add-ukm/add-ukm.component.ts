@@ -66,7 +66,9 @@ export class AddUkmComponent implements OnInit {
       result => {
         alert("Successfully added new UKM!");
         console.log(result);
-        this.router.navigateByUrl("/home");
+        const route = "/ukmdetail/" + this.data.kode;
+        console.log(route);
+        this.router.navigateByUrl(`${route}`);
       },
       error => {
         this.loading = false;

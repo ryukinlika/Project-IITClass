@@ -1,6 +1,7 @@
 import { PelayananAPIService } from './../../services/pelayanan-api.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthAPIService } from '../../services/auth-api.service';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -45,6 +46,9 @@ export class HeaderComponent implements OnInit {
         }
       }
     )
+
+    setInterval(this.authAPI.checkAuth, 180000, this.username);
+
   }
 
   logOut() {

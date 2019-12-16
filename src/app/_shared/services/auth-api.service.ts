@@ -83,6 +83,25 @@ export class AuthAPIService {
     this.fotoSource.next(localStorage.getItem("avatar_profile"));
   }
 
+
+
+  checkAuth(data: any) {
+    console.log('expire = ' + new Date(localStorage.getItem("expires_at")));
+    if (data == null || localStorage.getItem("user_name") == null) {
+      if (new Date(localStorage.getItem("expires_at")) < new Date()) {
+        alert("Session Expired!");
+        this.logout();
+      }
+      alert("Unauthorized!");
+      this.logout();
+    }
+    else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
+      alert("Session Expired!");
+      this.logout();
+    }
+  }
+
+
   logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
@@ -92,16 +111,5 @@ export class AuthAPIService {
     this.usernameSource.next(null);
     this.fotoSource.next(null);
     this.router.navigateByUrl("/home");
-  }
-
-
-  checkAuth(data: any) {
-    if (data == null || localStorage.getItem("user_name") == null) {
-      alert("Unauthorized!");
-      this.logout();
-    } else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
-      alert("Session Expired!");
-      this.logout();
-    }
   }
 }
