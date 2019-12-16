@@ -82,9 +82,8 @@
                 </a>
               </div>
               <div>
-                <button class="btn btn-primary" (click)="addFave(ukms)" id="{{ ukms?.kode }}">
-                  <em class="far fa-heart"></em>
-                </button>
+                <em (click)="addFave(ukms)" [ngClass]="findFave(ukms)
+                  "></em>
               </div>
             </div>
           </div>
@@ -116,9 +115,8 @@
                 </a>
               </div>
               <div>
-                <button class="btn btn-primary" (click)="addFave(ukms)" id="{{ ukms?.kode }}">
-                  <em class="far fa-heart"></em>
-                </button>
+                <em (click)="addFave(ukms)" [ngClass]="findFave(ukms)
+                  "></em>
               </div>
             </div>
           </div>

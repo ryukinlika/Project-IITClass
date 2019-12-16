@@ -107,7 +107,7 @@ export class UpdateUkmComponent implements OnInit {
         this.ukm = result
         this.updatefave(this.ukm)
         setTimeout(() => this.ngOnInit(), 2000);
-        setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 1000);
+        setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 2000);
 
       }
     );
