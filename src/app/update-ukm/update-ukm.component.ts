@@ -18,6 +18,8 @@ export class UpdateUkmComponent implements OnInit {
 
   private user?: any = JSON.parse(localStorage.getItem("user"));
   loading = false;
+  temp: any;
+  favo: any[] = [];
 
   public ukm: any;
   public cAt: Date;
@@ -102,13 +104,31 @@ export class UpdateUkmComponent implements OnInit {
 
     this.pelayanAPI.updateUKM(this.data, this.kode).subscribe(
       result => {
-        this.ngOnInit();
+        this.ukm = result
+        this.updatefave(this.ukm)
+        setTimeout(() => this.ngOnInit(), 2000);
         setTimeout(() => this.router.navigateByUrl("/ukmdetail/" + this.kode), 2000);
 
       }
     );
     this.loading = true;
 
+  }
+
+  updatefave(data: any) {
+    this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
+    this.temp = this.favo.findIndex(result => result.kode == data.result.kode)
+    if (this.temp >= 0) {
+      this.favo[this.temp].nama = data.result.nama
+      this.favo[this.temp].anggota = data.result.anggota
+      this.favo[this.temp].deskripsi = data.result.deskripsi
+      this.favo[this.temp].foto = data.result.foto
+      this.favo[this.temp].created_at = data.result.created_at
+      this.favo[this.temp].updated_at = data.result.updated_at
+      localStorage.setItem(
+        'favourited' + localStorage.getItem('user_name'),
+        JSON.stringify(this.favo))
+    }
   }
 }
 

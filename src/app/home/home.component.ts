@@ -75,6 +75,7 @@ export class HomeComponent implements OnInit {
           } else {
             continue;
           }
+          this.findFave(this.ukm.result.ukm)
         }
         localStorage.setItem("OL", this.OL.toString());
         localStorage.setItem("SB", this.SB.toString());
