@@ -27,6 +27,8 @@
             <p>{{setDate(ukm?.result.created_at, ukm?.result.updated_at)}}</p>
             <p> Created at : {{createdAt}}, Last updated at : {{updatedAt}}</p>
             <button class="btn btn-secondary" routerLink="/home">Back to Home</button>
+            <button *ngIf="loggedIn" class="btn btn-secondary edit-button" routerLink="/favourite">To Favourites
+            </button>
             <button *ngIf="loggedIn" class="btn btn-secondary edit-button"
               routerLink="/Update-Ukm/{{ukm?.result.kode}}">Edit
             </button>

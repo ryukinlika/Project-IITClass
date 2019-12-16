@@ -39,6 +39,7 @@ export class FavouriteComponent implements OnInit {
 
   loadFavo() {
     this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
+    console.log(this.favo)
   }
 
   removeFavo(data: any) {
