@@ -65,8 +65,11 @@ export class AddUkmComponent implements OnInit {
     this.pelayanAPI.newUKM(this.data).subscribe(
       result => {
         alert("Successfully added new UKM!");
-        // console.log(result);
-        this.router.navigateByUrl("/home");
+        //console.log(result);
+        const route = "/ukmdetail/" + this.data.kode;
+        //console.log(route);
+        this.router.navigateByUrl(`${route}`);
+
       },
       error => {
         this.loading = false;
