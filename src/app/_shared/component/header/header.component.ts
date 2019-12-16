@@ -57,11 +57,11 @@ export class HeaderComponent implements OnInit {
     }
     else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
       alert("Session Expired!");
-      this.logOut();
+      this.HeaderlogOut();
     }
   }
 
-  logOut() {
+  HeaderlogOut() {
     this.loggedIn = false;
     this.authAPI.logout();
   }
