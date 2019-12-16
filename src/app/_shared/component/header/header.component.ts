@@ -47,8 +47,18 @@ export class HeaderComponent implements OnInit {
       }
     )
 
-    setInterval(this.authAPI.checkAuth, 180000, this.username);
+    setInterval(this.checkLogin, 180000, this.username);
 
+  }
+
+  checkLogin(data: any) {
+    if (data == null || localStorage.getItem("user_name") == null) {
+      return;
+    }
+    else if (new Date(localStorage.getItem("expires_at")) < new Date()) {
+      alert("Session Expired!");
+      this.logOut();
+    }
   }
 
   logOut() {
