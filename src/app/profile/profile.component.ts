@@ -57,7 +57,6 @@ export class ProfileComponent implements OnInit {
                             "password": "${this.SHApassword}",
                             "token": "${this.token}"}`);
     }
-    console.log(this.data);
     this.authAPI.update(this.data).subscribe(
       result => {
         this.response = result;
