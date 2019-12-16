@@ -9,3 +9,8 @@
   background-color: #343a40;
   color: black;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 750px 20px;
+}

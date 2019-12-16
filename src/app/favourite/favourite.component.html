@@ -11,17 +11,20 @@
             <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
-            <div class="card-block w-75">
-              <h4 class="card-title">{{ favos?.nama }}</h4>
-              <p class="card-text ">
-                {{ favos?.deskripsi }}
-              </p>
-              <button class="btn btn-primary" (click)="removeFavo(favos)">
-                Remove from Favourite
-              </button>
-              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
-                SEE MORE DETAILS
-              </a>
+            <div class="card-block w-75 card-grid">
+              <div>
+                <h4 class="card-title">{{ favos?.nama }}</h4>
+                <p class="card-text ">
+                  {{ favos?.deskripsi }}
+                </p>
+                <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
+                  SEE MORE DETAILS</a>
+              </div>
+
+              <div>
+                <i class="btn btn-danger far fa-trash-alt fa-lg" (click)="removeFavo(favos)">
+                </i>
+              </div>
             </div>
           </div>
         </div>
@@ -39,17 +42,20 @@
             <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
-            <div class="card-block w-75">
-              <h4 class="card-title">{{ favos?.nama }}</h4>
-              <p class="card-text ">
-                {{ favos?.deskripsi }}
-              </p>
-              <button class="btn btn-primary" (click)="removeFavo(favos)">
-                Remove from Favourite
-              </button>
-              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
-                SEE MORE DETAILS
-              </a>
+            <div class="card-block w-75 card-grid">
+              <div>
+                <h4 class="card-title">{{ favos?.nama }}</h4>
+                <p class="card-text ">
+                  {{ favos?.deskripsi }}
+                </p>
+                <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
+                  SEE MORE DETAILS</a>
+              </div>
+
+              <div>
+                <i class="btn btn-danger far fa-trash-alt fa-lg" (click)="removeFavo(favos)">
+                </i>
+              </div>
             </div>
           </div>
         </div>
@@ -67,17 +73,20 @@
             <div class="card-header border-0 w-25 my-auto" style="background: white;">
               <img [src]="favos?.foto" alt="Photo UKM" style="width:60%;" />
             </div>
-            <div class="card-block w-75">
-              <h4 class="card-title">{{ favos?.nama }}</h4>
-              <p class="card-text ">
-                {{ favos?.deskripsi }}
-              </p>
-              <button class="btn btn-primary" (click)="removeFavo(favos)">
-                Remove from Favourite
-              </button>
-              <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
-                SEE MORE DETAILS
-              </a>
+            <div class="card-block w-75 card-grid">
+              <div>
+                <h4 class="card-title">{{ favos?.nama }}</h4>
+                <p class="card-text ">
+                  {{ favos?.deskripsi }}
+                </p>
+                <a routerLink="../ukmdetail/{{ favos?.kode }}" class="btn btn-primary m-1">
+                  SEE MORE DETAILS</a>
+              </div>
+
+              <div>
+                <i class="btn btn-danger far fa-trash-alt fa-lg" (click)="removeFavo(favos)">
+                </i>
+              </div>
             </div>
           </div>
         </div>
