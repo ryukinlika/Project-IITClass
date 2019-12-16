@@ -8,11 +8,20 @@
         <p class="neglectmasthead" class="lead">Express Yourself</p>
         <div style="padding-top: 30px;">
           <div class="searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="searchText" />
+            <input
+              class="searchInput"
+              type="text"
+              name=""
+              placeholder="Search"
+              [(ngModel)]="searchText"
+            />
             <div class="searchButton">
               <em class="material-icons">
-                <img src="./.././../assets/images/magnifier.png" alt="Magnifier"
-                  style="width: 25px;filter: invert(1);" />
+                <img
+                  src="./.././../assets/images/magnifier.png"
+                  alt="Magnifier"
+                  style="width: 25px;filter: invert(1);"
+                />
               </em>
             </div>
             <br />
@@ -27,13 +36,28 @@
   <mat-tab-group style="min-height:800px;">
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/athletics.png" alt="Athletics Logo" class="tab-icon" />
+        <img
+          src="./.././../assets/images/athletics.png"
+          alt="Athletics Logo"
+          class="tab-icon"
+        />
         <span style="color: white">Athletics</span>
       </ng-template>
-      <div *ngFor="let ukms of ukm?.result.ukm | search: searchText" class="hide-overflow">
-        <div *ngIf="ukms.kode.includes('OL')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+      <div
+        *ngFor="let ukms of ukm?.result.ukm | search: searchText"
+        class="hide-overflow"
+      >
+        <div
+          *ngIf="ukms.kode.includes('OL')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
           <div class="card flex-row flex-wrap p-2">
-            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
               <img [src]="ukms?.foto" alt="Ukm Pic" style="width: 60%;" />
             </div>
             <div class="card-block w-75 card-grid">
@@ -44,13 +68,18 @@
                 <p class="card-text ">
                   {{ ukms?.deskripsi }}
                 </p>
-                <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+                <a
+                  routerLink="../ukmdetail/{{ ukms?.kode }}"
+                  class="btn btn-primary m-1"
+                >
                   SEE MORE DETAILS
                 </a>
               </div>
               <div>
+
                 <em (click)="addFave(ukms)" [ngClass]="findFave(ukms)
                   "></em>
+
               </div>
             </div>
           </div>
@@ -60,13 +89,25 @@
 
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/art.png" alt="Art Logo" class="tab-icon" />
+        <img
+          src="./.././../assets/images/art.png"
+          alt="Art Logo"
+          class="tab-icon"
+        />
         <span style="color: white">Art & Culture</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm | search: searchText">
-        <div *ngIf="ukms.kode.includes('SB')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+        <div
+          *ngIf="ukms.kode.includes('SB')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
           <div class="card flex-row flex-wrap p-2">
-            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
               <img [src]="ukms?.foto" alt="Ukm Pic" style="width: 60%;" />
             </div>
             <div class="card-block w-75 card-grid">
@@ -77,13 +118,18 @@
                 <p class="card-text ">
                   {{ ukms?.deskripsi }}
                 </p>
-                <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+                <a
+                  routerLink="../ukmdetail/{{ ukms?.kode }}"
+                  class="btn btn-primary m-1"
+                >
                   SEE MORE DETAILS
                 </a>
               </div>
               <div>
+
                 <em (click)="addFave(ukms)" [ngClass]="findFave(ukms)
                   "></em>
+
               </div>
             </div>
           </div>
@@ -93,13 +139,25 @@
 
     <mat-tab>
       <ng-template mat-tab-label>
-        <img src="./.././../assets/images/sciencesocial.png" alt="Science and Social Logo" class="tab-icon" />
+        <img
+          src="./.././../assets/images/sciencesocial.png"
+          alt="Science and Social Logo"
+          class="tab-icon"
+        />
         <span style="color: white">Science & Social</span>
       </ng-template>
       <div *ngFor="let ukms of ukm?.result.ukm | search: searchText">
-        <div *ngIf="ukms.kode.includes('SS')" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+        <div
+          *ngIf="ukms.kode.includes('SS')"
+          data-aos="fade-right"
+          data-aos-duration="500"
+          data-aos-delay="100"
+        >
           <div class="card flex-row flex-wrap p-2">
-            <div class="card-header border-0 w-25 my-auto" style="background: white;">
+            <div
+              class="card-header border-0 w-25 my-auto"
+              style="background: white;"
+            >
               <img [src]="ukms?.foto" alt="Ukm Pic" style="width: 60%;" />
             </div>
             <div class="card-block w-75 card-grid">
@@ -110,13 +168,18 @@
                 <p class="card-text ">
                   {{ ukms?.deskripsi }}
                 </p>
-                <a routerLink="../ukmdetail/{{ ukms?.kode }}" class="btn btn-primary m-1">
+                <a
+                  routerLink="../ukmdetail/{{ ukms?.kode }}"
+                  class="btn btn-primary m-1"
+                >
                   SEE MORE DETAILS
                 </a>
               </div>
               <div>
+
                 <em (click)="addFave(ukms)" [ngClass]="findFave(ukms)
                   "></em>
+
               </div>
             </div>
           </div>
@@ -126,18 +189,35 @@
 
     <mat-tab disabled>
       <ng-template mat-tab-label style="overflow: visible;">
-        <button mat-button class="btn btn-secondary dropdown-toggle" type="button" [matMenuTriggerFor]="SortMenu">
+        <button
+          mat-button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          [matMenuTriggerFor]="SortMenu"
+        >
           Sort By
         </button>
         <mat-menu #SortMenu="matMenu" overlapTrigger="false">
           <span>
-            <button mat-menu-item class="dropdown-item" (click)="sortby('nama')">
+            <button
+              mat-menu-item
+              class="dropdown-item"
+              (click)="sortby('nama')"
+            >
               Name
             </button>
-            <button mat-menu-item class="dropdown-item" (click)="sortby('anggota')">
+            <button
+              mat-menu-item
+              class="dropdown-item"
+              (click)="sortby('anggota')"
+            >
               Jumlah Anggota
             </button>
-            <button mat-menu-item class="dropdown-item" (click)="sortby('updated_at')">
+            <button
+              mat-menu-item
+              class="dropdown-item"
+              (click)="sortby('updated_at')"
+            >
               Last Modified
             </button>
           </span>
