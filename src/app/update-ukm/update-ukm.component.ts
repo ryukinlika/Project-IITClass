@@ -53,7 +53,6 @@ export class UpdateUkmComponent implements OnInit {
       this.kode = param.kode;
       this.pelayanAPI.getUKMbykode(param.kode).subscribe(
         result => {
-          console.log(result)
           this.ukm = result;
           localStorage.setItem("localukm", JSON.stringify(this.ukm));
         },
