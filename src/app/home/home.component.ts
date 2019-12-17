@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   index: any;
   temp: any;
   numbercheck: number;
+  bool: boolean;
   newArr: any[] = []
   counter = 0;
   isFavorited = false;
@@ -50,7 +51,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   findFave(data: any) {
-    if (this.favo.findIndex(result => result.kode == data.kode) > -1) {
+    this.bool = this.checkFave()
+    if (this.bool && this.favo.findIndex(result => result.kode == data.kode) > -1) {
       return {
         fas: true,
         'fa-heart': true,
@@ -155,18 +157,23 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  addFave(data: any) {
+  checkFave() {
     if (!this.isLoggedIn) {
-      alert('Silahkan login terlebih dahulu');
-      return;
+      return false;
     }
     if (
       localStorage.getItem('favourited' + localStorage.getItem('user_name')) !=
       null
-    )
+    ) {
       this.favo = JSON.parse(
         localStorage.getItem('favourited' + localStorage.getItem('user_name'))
       );
+      return true;
+    }
+  }
+
+  addFave(data: any) {
+    this.checkFave()
     // console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {
