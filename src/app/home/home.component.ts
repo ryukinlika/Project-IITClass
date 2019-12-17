@@ -170,10 +170,13 @@ export class HomeComponent implements OnInit {
       );
       return true;
     }
+    return true;
   }
 
   addFave(data: any) {
-    this.checkFave()
+    if (!this.checkFave()) {
+      return;
+    }
     // console.log(this.favo);
 
     if (this.favo.findIndex(result => result.kode == data.kode) == -1) {

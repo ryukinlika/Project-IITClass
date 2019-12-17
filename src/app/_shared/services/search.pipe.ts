@@ -8,7 +8,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(ukm: any, value?: any): any {
 
-    if (typeof (value) == "undefined") return ukm;
+    if (typeof (value) == "undefined" || value == '') return ukm;
 
     value = value.toLowerCase();
 
