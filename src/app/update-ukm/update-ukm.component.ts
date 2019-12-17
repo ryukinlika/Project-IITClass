@@ -117,17 +117,19 @@ export class UpdateUkmComponent implements OnInit {
 
   updatefave(data: any) {
     this.favo = JSON.parse(localStorage.getItem("favourited" + localStorage.getItem("user_name")));
-    this.temp = this.favo.findIndex(result => result.kode == data.result.kode)
-    if (this.temp >= 0) {
-      this.favo[this.temp].nama = data.result.nama
-      this.favo[this.temp].anggota = data.result.anggota
-      this.favo[this.temp].deskripsi = data.result.deskripsi
-      this.favo[this.temp].foto = data.result.foto
-      this.favo[this.temp].created_at = data.result.created_at
-      this.favo[this.temp].updated_at = data.result.updated_at
-      localStorage.setItem(
-        'favourited' + localStorage.getItem('user_name'),
-        JSON.stringify(this.favo))
+    if (this.favo != null) {
+      this.temp = this.favo.findIndex(result => result.kode == data.result.kode)
+      if (this.temp >= 0) {
+        this.favo[this.temp].nama = data.result.nama
+        this.favo[this.temp].anggota = data.result.anggota
+        this.favo[this.temp].deskripsi = data.result.deskripsi
+        this.favo[this.temp].foto = data.result.foto
+        this.favo[this.temp].created_at = data.result.created_at
+        this.favo[this.temp].updated_at = data.result.updated_at
+        localStorage.setItem(
+          'favourited' + localStorage.getItem('user_name'),
+          JSON.stringify(this.favo))
+      }
     }
   }
 }
