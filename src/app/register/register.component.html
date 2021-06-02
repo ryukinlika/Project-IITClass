@@ -1,1 +1,91 @@
-<p>register works!</p>
+<div class="container">
+  <div class="col-md-10 offset-md-1 mt-5">
+    <div class="card">
+      <h4 class="card-header">Register</h4>
+      <div class="card-body">
+        <form [formGroup]="regisForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="user_name">Username</label>
+              <input type="text" formControlName="user_name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }" />
+              <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                <div *ngIf="f.user_name.errors.required">Username is required</div>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="nama_lengkap">Full Name</label>
+              <input type="text" formControlName="nama_lengkap" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.nama_lengkap.errors }" />
+              <div *ngIf="submitted && f.nama_lengkap.errors" class="invalid-feedback">
+                <div *ngIf="f.nama_lengkap.errors.required">Full name is required</div>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label for="email">Email</label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Valid email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address!</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="alamat">Address</label>
+              <input type="text" formControlName="alamat" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.alamat.errors }" />
+              <div *ngIf="submitted && f.alamat.errors" class="invalid-feedback">
+                <div *ngIf="f.alamat.errors.required">Address is required</div>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label for="telepon">Phone Number</label>
+              <input type="text" formControlName="telepon" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.telepon.errors }" />
+              <div *ngIf="submitted && f.telepon.errors" class="invalid-feedback">
+                <div *ngIf="f.telepon.errors.required">Phone number is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="tanggal_lahir">Birth Date</label>
+              <input type="date" formControlName="tanggal_lahir" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.tanggal_lahir.errors }" />
+              <div *ngIf="submitted && f.tanggal_lahir.errors" class="invalid-feedback">
+                <div *ngIf="f.tanggal_lahir.errors.required">Birthdate is required</div>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label for="foto">Photo (Link)</label>
+              <input type="text" formControlName="foto" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.foto.errors }" />
+              <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
+                <div *ngIf="f.foto.errors.required">Photo link is required</div>
+              </div>
+            </div>
+          </div>
+          <p class="alert alert-danger" *ngIf="submitError">{{errormessage}}</p>
+          <button [disabled]="loading" class="btn btn-primary mr-3">
+            Register
+          </button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

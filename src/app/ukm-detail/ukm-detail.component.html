@@ -1,0 +1,45 @@
+<section class="hero-section spad">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-10 offset-xl-1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="hero-info">
+              <h1>{{ukm?.result.nama}}</h1>
+              <br>
+              <ul>
+                <li><span>Kode UKM</span>{{ukm?.result.kode}}</li>
+                <li><span>Anggota</span>{{ukm?.result.anggota}}</li>
+                <li
+                  *ngIf="ukm?.result.jam_selesai != 'null' && ukm?.result.jam_selesai != '' && ukm?.result.jam_selesai != 'undefined'; else elseBlock">
+                  <span>Waktu</span>{{ukm?.result.jam_mulai}} - {{ukm?.result.jam_selesai}}
+                </li>
+                <ng-template #elseBlock>
+                  <li>
+                    <span>Waktu</span>{{ukm?.result.jam_mulai}} - Selesai
+                  </li>
+                </ng-template>
+
+              </ul>
+              <br>
+            </div>
+            <p>{{ukm?.result.deskripsi}}</p>
+            <p>{{setDate(ukm?.result.created_at, ukm?.result.updated_at)}}</p>
+            <p> Created at : {{createdAt}}, Last updated at : {{updatedAt}}</p>
+            <button class="btn btn-secondary" routerLink="/home">Back to Home</button>
+            <button *ngIf="loggedIn" class="btn btn-secondary edit-button" routerLink="/favourite">To Favourites
+            </button>
+            <button *ngIf="loggedIn" class="btn btn-secondary edit-button"
+              routerLink="/Update-Ukm/{{ukm?.result.kode}}">Edit
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <figure class="hero-image">
+              <img src="{{ukm?.result.foto}}" alt="Photo UKM" class="img-responsive foto">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

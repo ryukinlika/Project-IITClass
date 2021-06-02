@@ -1,13 +1,57 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#">View All UKM</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item nav-link" routerLink="/home">
+      <a>
+        <img src="./.././.././.././../assets/images/logo-02.png" alt="UKM Logo" width="80" height="40" />
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/ukmcode">View UKM by Code</a>
+    <li class="nav-item nav-link" routerLink="/profile-kelompok">
+      <h6>
+        Profile Kelompok
+      </h6>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Add New UKM</a>
+    <li *ngIf="loggedIn" class="nav-item nav-link" routerLink="/favourite">
+      <h6>
+        My Favourites
+      </h6>
+    </li>
+
+    <li *ngIf="loggedIn" class="nav-item nav-link align-middle" routerLink="/Add-Ukm">
+      <h6>
+        Add New UKM
+      </h6>
+
     </li>
   </ul>
+  <ul *ngIf="!loggedIn" class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <button type="button" class="btn btn-light" routerLink="/register" style="margin: 5px; float: right;">
+        Sign Up
+      </button>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="btn btn-outline-light" routerLink="/login" style="margin: 5px; float: right;">
+        Log In
+      </button>
+    </li>
+  </ul>
+
+  <ul *ngIf="loggedIn" class="navbar-nav ml-auto">
+    <li class="nav-item dropdown">
+
+      <a href="#" class="nav-link" data-toggle="dropdown">
+        <img [src]="foto" alt="Photo Avatar" id="profileavatar" class="avatar">
+      </a>
+
+      <div class="dropdown-menu dropdown-menu-right animate slideIn">
+        <a href="" routerLink="/user" class="dropdown-item">Signed in as <br><strong>{{username}}</strong></a>
+        <div class="dropdown-divider"></div>
+        <a href="" routerLink="/user" class="dropdown-item">My Profile</a>
+        <div class="dropdown-divider"></div>
+        <a (click)="HeaderlogOut()" class="dropdown-item">Logout</a>
+      </div>
+
+    </li>
+  </ul>
+
 </nav>
